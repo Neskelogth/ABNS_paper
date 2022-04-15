@@ -1,0 +1,93 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Proposition of New Experiment to Better Understand the Relation Between Typicality and Prototypes%\\
+%{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
+%should not be used}
+%\thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+\author{\IEEEauthorblockN{Samuel Kostadinov}
+%\IEEEauthorblockA{\textit{Department of } \\
+%\textit{name of organization (of Aff.)}\\
+%City, Country \\
+%email address or ORCID}
+}
+
+\maketitle
+
+\section{Introduction}
+In this paper, I would like to propose an experiment to gain higher knowledge about the bound between typicality and key features of an object. 
+The first step of the experiment is to extract the key features of an image. 
+After extracting the features, we build a prototype of the image. 
+As the last step, through a siamese network, we evaluate the similarity of an image. 
+This process can help us understand if there is a bond between the typicality and resemblance to a prototype.
+
+
+\section{The experiment}
+The experiment I would like to suggest is composed of some phases. The first thing to do is to collect the images for the experiment. 
+The collected images should be part of different categories like, for example, "birds" or "dogs". 
+Then there is data collection about human typicality judgments. To do this, there should be a survey in which users rate the typicality of the previously collected images. 
+Once the data are complete, in order to reduce possible noise, we should average the data.  
+While collecting the data, there is the possibility to start working on the images. 
+The first step is to extract meaningful features. 
+Some techniques that range from simple edge detection to deformable shape analysis may be functional.
+Other strategies that require the presence of neural networks, either fully connected or convolutional, are used in medical imaging and can be useful if adapted to a non-medical domain. 
+Moreover, if the dataset contains hyperspectral images, some specific techniques that use convolutional or recurrent neural networks can be used to extract meaningful features. 
+The following step is to build a prototype image based on the features extracted.
+After building the prototype, the following step is to train a deep learning siamese network that will give a similarity estimation. 
+This kind of network gives a similarity measure between two inputs. 
+A siamese network's training requires a loss function that measures the distance between the two examples fed to the network. 
+This can be helpful since if we use a custom loss function, defined based on human typicality rates, we can have an estimation on how similar is an image to the prototype that humans have. 
+Moreover, if a different loss function is used, there is the possibility to understand how similar are the neural network's and the human's similarity concepts.
+
+
+\section*{Some references}
+
+\begin{itemize}
+
+	\item Edge extraction methods \cite{b1}
+	\item Shape correspondence \cite{b2}, \cite{b3}
+	\item Medical imaging feature extraction \cite{b4}
+	\item CNN feature extraction for pneumonia \cite{b5}
+	\item Hybrid feature extraction for brain tumour classification \cite{b6}
+	\item Hyperspectral feature extraction methods \cite {b7}
+	%\item Siamese Networoks \cite{b8}
+	\item Learning similarity metric for face verification \cite{b8}
+	\item Learning similarity metrics (Cutting-Edge Trends in Deep Learning and Recognition course, University of Ilinois) \cite{b9}
+	\item Understanding the contrastive loss reference \cite{b9}
+
+\end{itemize}
+
+
+
+\begin{thebibliography}{00}
+
+\bibitem{b1} Owotogbe, JS and Ibiyemi, TS and Adu, BA, ``Edge detection techniques on digital images-a review'', Int J Innov Sci Res Technol, vol 2, pp. 329--332, 2019
+\bibitem{b2}Sahillioğlu, Y. Recent advances in shape correspondence. Vis Comput 36, 1705–1721 (2020). https://doi.org/10.1007/s00371-019-01760-0
+\bibitem{b3} Halimi, Oshri and Litany, Or and Rodola, Emanuele and Bronstein, Alex M and Kimmel, Ron, ``Unsupervised learning of dense shape correspondence'', Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 4370--4379, 2019
+\bibitem{b4} Chiranji Lal Chowdhary, D.P. Acharjya, ``Segmentation and Feature Extraction in Medical Imaging: A Systematic Review, Procedia Computer Science'', vol. 167, pp. 26-36, 2020, ISSN 1877-0509, https://doi.org/10.1016/j.procs.2020.03.179
+\bibitem{b5} Varshni, Dimpy and Thakral, Kartik and Agarwal, Lucky and Nijhawan, Rahul and Mittal, Ankush, ``Pneumonia detection using CNN based feature extraction'', 2019 IEEE international conference on electrical, computer and communication technologies (ICECCT), pp. 1--7, 2019
+\bibitem{b6} Gumaei, Abdu and Hassan, Mohammad Mehedi and Hassan, Md Rafiul and Alelaiwi, Abdulhameed and Fortino, Giancarlo, ``A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification'', IEEE Access, vol. 7, pp. 36266--36273, 2019
+\bibitem{b7} B. Rasti et al., "Feature Extraction for Hyperspectral Imagery: The Evolution From Shallow to Deep: Overview and Toolbox," in IEEE Geoscience and Remote Sensing Magazine, vol. 8, no. 4, pp. 60-88, Dec. 2020, doi: 10.1109/MGRS.2020.2979764
+%\bibitem{b8} https://en.wikipedia.org/wiki/Siamese_neural_network
+\bibitem{b8} Chopra, S.; Hadsell, R.; LeCun, Y., ``Learning a similarity metric discriminatively, with application to face verification'', 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition, vol.1, pp. 539–546, doi:10.1109/CVPR.2005.202, 
+\bibitem{b9} Chatterjee, Moitreya; Luo, Yunan, Similarity Learning with (or without) Convolutional Neural Network, 2017
+\bibitem{b9} Wang, Feng and Liu, Huaping, ``Understanding the behaviour of contrastive loss'', Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pp. 2495--2504, 2021
+
+%\bibitem{b10} Wang, Feng and Liu, Huaping; ``Understanding the behaviour of contrastive loss''; Proceedings of the IEEE/CVF conference on computer vision and pattern recognition; pp. 2495--2504, 2021
+
+\end{thebibliography}
+\vspace{12pt}
+
+\end{document}
