@@ -7,7 +7,6 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
-%\usepackage{bibtex}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -36,14 +35,6 @@ Typicality, Prototypes, CNNs, Siamese Network
 \end{IEEEkeywords}
 
 
-
-
-
-
-
-
-
-
 \section{Introduction}
 	
 	The typicality of a concept is a topic that needs a lot of exploration, since it's difficult to evaluate precisely the typicality of an object 
@@ -51,19 +42,6 @@ Typicality, Prototypes, CNNs, Siamese Network
 	make sure we can understand better the bond between the perceived typicality of an object that belongs to a category and the prototype of that category.
 	This can help the scientists to better understand how knowledge is organized in the brain. This experiment consists in different phases, such as
 	data collection, feature extraction, prototype construction and similarity judgment.
-
-
-
-%\section{Related Work}
-
-%	In this section we will cover some related work to the topics that are of interest for this paper. In the first section there is an overview on 
-%	feature extraction methods, in the second section there are prototype construction related work, and in the final section there is an 
-%	outline of similarity judgment related work. 
-	
-%	\subsection{Feature extraction related work}\label{fes}	
-%	\subsection{Prototype construction related work}\label{pcs}
-%	\subsection{Similarity judgment related work}\label{sjs}
-
 
 
 \section{Background}
@@ -78,17 +56,109 @@ Typicality, Prototypes, CNNs, Siamese Network
 		These are, for example, edge extraction or shape analysis. 
 		Other possibilities, more advanced, involve neural networks.\\
 
-		\begin{itemize}
-			
-			\item \textbf{Edge detection}:\\				
+			\subsubsection{Classic feature extraction techniques}\\
+				
+				One of the first feature extraction methods implemented in image processing is edge detection.				
 				In 2019, a paper by Owotogbe presented a review of edge detection techniques. 
-				These are usually divided into two groups, gradient-based and gaussian-based. 
+				These are usually divided into two groups, gradient-based and Gaussian-based. 
 				Some examples are the Sobel operator and the Canny edge detector. 
 				Each of the methods has pros and cons. 
-				It's the user's job to find the most appropriate for its goal~\cite{1}.
-			
-		\end{itemize}
+				It's the user's job to find the most appropriate for its goal~\cite{1}.\\
+				
+				After edge detection, other techniques began to spread for feature extraction. 
+				In a paper by Kumar and Kumar Bhatia written in 2014 \cite{2}, 
+				there are some examples of techniques used to extract features. 
+				In the first one, the authors present different types of features and then some techniques to extract them. 
+				These are:
 
+				\begin{itemize}
+				
+					\item \textbf{Diagonal based feature extraction techniques}:
+					
+						In this procedure, the image is divided into zones formed by small squares of pixels. 
+						In this case, there would be 19 diagonal lines. 
+						The value of each pixel in these diagonals is summed to obtain a single sub feature. 
+						Then we can extract a feature by averaging the sub features. 
+						With this method, we can extract a feature for every zone. 
+						Then by averaging the column-wise and row-wise features we can increase their number. 
+						
+					
+					\item \textbf{Fourier descriptors}:
+					
+						The Fourier transform is commonly used for shape analysis. 
+						The Fourier transformed coefficient form the Fourier descriptors. 
+						These descriptors represent the shape in a frequency domain, with the low frequencies symbolizing the general shape and the high frequencies symbolizing details of the shape. 
+						Since the transformation usually generates many parameters, only a subset is considered.
+					
+					
+					\item \textbf{Principal Component Analysis(PCA)}:
+					
+						This procedure is a mathematical way to convert a set of observations into a set of values of uncorrelated variables. 
+						These variables are defined so that the first one has the highest variance, and the components are all orthogonal (independent) from each other. 
+						
+					\item \textbf{Independent component analysis(ICA)}:
+					
+						ICA is a statistical technique. 
+						It aims to use non-Gaussian random variables to represent multidimensional vectors. 
+						The random variables should be as independent as possible. 
+					
+					\item \textbf{Gabor filter}:
+					
+						A Gabor is a sinusoid multiplied by a Gaussian, and its response is a convolution operation. 
+						This type of filter performs well in both spatial and frequency domains. 
+					
+					\item \textbf{Chain Code Histogram of Character Contour}:
+					
+						This method is based on a contour following technique. 
+						The contour following uses a chain coding standard proposed by Freeman, that assigns a value to every pixel to identify the next pixel in the border.
+
+					\item \textbf{Finding Intersection/Junction in character}:
+					
+						Using the same standard proposed by Freeman used in Chain Code Histogram, there is the possibility to count intersections (or junctions) and open ends in a figure.					
+						
+					\item \textbf{Transition feature}:
+					
+						This method is based on the transition from background to foreground. 
+						There are different techniques that can work both on grey level images or in 4-connected or 8-connected images.
+					
+				\end{itemize}
+			
+			
+			\noindent These were not the only techniques presented in the paper, but since some were more problem-specific (about handwritten character recognition)
+			were excluded from the list. These excluded techniques can still be used, but may have worse results or may require some adaptation. 
+			The techniques were: Fractal theory techniques, Shadow features of character, Sector approach for feature extraction, 
+			Extraction of distance and angle features, Extraction of occupancy and end-point features, and Zernike moments.
+			In another paper, written in 2013 by Tian \cite{3}, there are some other techniques cited that may result useful:
+			
+			\begin{itemize}
+			
+				\item \textbf{Color features}:
+					
+					Color is one of the most important features humans can perceive. 
+					The features we can extract depend on the color space, but once it's defined there are some possibilities. 
+					A few examples are color histograms, color moments and color coherence vectors. 
+					One of the simple and meaningful, according to the authors, is color moments. 
+					The most common color moments are the mean, the standard deviation and the skewness. 
+					
+				\item \textbf{Texture features}:
+				
+					Another very important feature of images is texture. 
+					Features involving texture analysis can be extracted from groups of pixels. 
+					One of the most common methods is a Gabor filter, which can be used by characterizing the central frequency and the orientation parameters.
+			
+			\end{itemize}
+			
+			
+		\subsubsection{Deformable shape analysis}
+		
+			A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, 
+			
+		\subsubsection{Machine learning based feature extraction techniques}
+			
+		%\subsubsection{Madical imaging feature extraction techniques}
+		
+		\subsubsection{Hyperspectral images feature extraction}
+			
 \section{Data Collection}
 \section{Feature Extraction}
 \section{Prototype Construction}
@@ -137,31 +207,11 @@ Typicality, Prototypes, CNNs, Siamese Network
 %\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
 %quantities and units. For example, write ``Temperature (K)'', not 
 %``Temperature/K''.
+-
 
 
 
 
-
-%\section*{References}
-%
-%Please number citations consecutively within brackets \cite{b1}. The 
-%sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-%number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-%the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-%
-%Number footnotes separately in superscripts. Place the actual footnote at 
-%the bottom of the column in which it was cited. Do not put footnotes in the 
-%abstract or reference list. Use letters for table footnotes.
-%
-%Unless there are six authors or more give all authors' names; do not use 
-%``et al.''. Papers that have not been published, even if they have been 
-%submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-%that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-%Capitalize only the first word in a paper title, except for proper nouns and 
-%element symbols.
-%
-%For papers published in translation journals, please give the English 
-%citation first, followed by the original foreign-language citation \cite{b6}.
 
 
 
@@ -170,8 +220,17 @@ Typicality, Prototypes, CNNs, Siamese Network
 \begin{thebibliography}{00}
 
 \bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
+\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, ``A Detailed Review of Feature Extraction in Image Processing Systems'', FourthInternational Conference on Advanced Computing \& Communication Technologies, DOI \url{https://doi.org/10.1109/ACCT.2014.7}, 2014
+\bibitem{3} Dong Ping Tian, ``A Review on Image Feature Extraction and Representation Techniques'', International Journal of Multimedia and Ubiquitous Engineering, vol.8, pp. 385-396, July 2013
+\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
 
-%\bibitem{b1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, pp. 11, November 2019.
+
+
+
+
+
+
+%\bibitem{b1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, pp. 11, Nov. 2019
 %\bibitem{1} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
 %\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
 %\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
@@ -179,16 +238,5 @@ Typicality, Prototypes, CNNs, Siamese Network
 %\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
 %\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
-
-
-
-
-
-
-%\vspace{12pt}
-%\color{red}
-%IEEE conference templates contain guidance text for composing and formatting conference papers. Please ensure that all template text is removed from your conference paper prior to submission to the conference. Failure to remove the template text from your paper may result in your paper not being published.
-
-
 
 \end{document}
