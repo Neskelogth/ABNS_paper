@@ -56,7 +56,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 		These are, for example, edge extraction or shape analysis. 
 		Other possibilities, more advanced, involve neural networks.\\
 
-			\subsubsection{Classic feature extraction techniques}\\
+			\subsubsection{Classic feature extraction techniques}
 				
 				One of the first feature extraction methods implemented in image processing is edge detection.				
 				In 2019, a paper by Owotogbe presented a review of edge detection techniques. 
@@ -91,12 +91,12 @@ Typicality, Prototypes, CNNs, Siamese Network
 						Since the transformation usually generates many parameters, only a subset is considered.
 					
 					
-					\item \textbf{Principal Component Analysis(PCA)}:
+					\item \textbf{Principal Component Analysis (PCA)}:
 					
 						This procedure is a mathematical way to convert a set of observations into a set of values of uncorrelated variables. 
 						These variables are defined so that the first one has the highest variance, and the components are all orthogonal (independent) from each other. 
 						
-					\item \textbf{Independent component analysis(ICA)}:
+					\item \textbf{Independent component analysis (ICA)}:
 					
 						ICA is a statistical technique. 
 						It aims to use non-Gaussian random variables to represent multidimensional vectors. 
@@ -127,7 +127,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 			\noindent These were not the only techniques presented in the paper, but since some were more problem-specific (about handwritten character recognition)
 			were excluded from the list. These excluded techniques can still be used, but may have worse results or may require some adaptation. 
 			The techniques were: Fractal theory techniques, Shadow features of character, Sector approach for feature extraction, 
-			Extraction of distance and angle features, Extraction of occupancy and end-point features, and Zernike moments.
+			Extraction of distance and angle features, Extraction of occupancy and end-point features, and Zernike moments.\\
 			In another paper, written in 2013 by Tian \cite{3}, there are some other techniques cited that may result useful:
 			
 			\begin{itemize}
@@ -148,10 +148,26 @@ Typicality, Prototypes, CNNs, Siamese Network
 			
 			\end{itemize}
 			
-			
 		\subsubsection{Deformable shape analysis}
 		
-			A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, 
+			A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
+			In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{5}. For the goal of the experiment proposed here, some deformable shape 
+			detection techniques can be useful. \\
+			The technique proposed strongly relies on the trinagulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
+			%The resulting approximation is as precise as the user decides, meaning that it's very flexible for the representation of shapes. 
+			%In particular, in the paper the triangulation was done with a technique called constrained Delaunay triangulation (CDT), because of its tight relation with the medial axis transform. 
+			The author also make use of the properties of chordal graphs and k-trees.\\
+			The technique described in this paper falls under the category of deformable template matching. One of the components of the method is the energy function, a function that associates a cost with every 
+			possible transformation. The objective is to find the transformation with the lowest possible cost. This component is very flexible, since depending on the formulation of the energy function the costs 
+			can be tuned even for individual triangles. Moreover, it is also possible to integrate learning techniques to learn deformation parameters.
+			Since the possible non-rigid transformations of a template are numerous, this kind of techniques usually requires an initialization near to the correct solution, 
+			although this is not required for the algorithm presented in this paper. 
+			For the implementation of the algorithm itself, a techniques called nonserial dynamic programming was the key factor. In fact, using the order of perfect elimination (property of the every triangulated 
+			simple polygon), the algorithm computes the optimal position of every vertex with respect to the other vertices. Once the algorithm solves for the last vertex, it can 
+			update all the others as in typical dynamic programming and obtain the optimal location for every vertex.\\
+			The learning of the parameters can be seen as looking for the location with the highest. The matching problem is then fed to a statistical framework that computes the configuration minimizing the 
+			energy cost, which corresponds to the best template match.
+			
 			
 		\subsubsection{Machine learning based feature extraction techniques}
 			
@@ -167,14 +183,14 @@ Typicality, Prototypes, CNNs, Siamese Network
 
 \section{Conclusion}
 \section{Possible Further Experiments}
-%\subsection{Figures and Tables}
+
 %\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
 %bottom of columns. Avoid placing them in the middle of columns. Large 
 %figures and tables may span across both columns. Figure captions should be 
 %below the figures; table heads should appear above the tables. Insert 
 %figures and tables after they are cited in the text. Use the abbreviation 
 %``Fig.~\ref{fig}'', even at the beginning of a sentence.
-%
+
 %\begin{table}[htbp]
 %\caption{Table Type Styles}
 %\begin{center}
@@ -191,29 +207,17 @@ Typicality, Prototypes, CNNs, Siamese Network
 %\label{tab1}
 %\end{center}
 %\end{table}
-%
+
 %\begin{figure}[htbp]
 %\centerline{\includegraphics{fig1.png}}
 %\caption{Example of a figure caption.}
 %\label{fig}
 %\end{figure}
-%
-%Figure Labels: Use 8 point Times New Roman for Figure labels. Use words 
-%rather than symbols or abbreviations when writing Figure axis labels to 
-%avoid confusing the reader. As an example, write the quantity 
-%``Magnetization'', or ``Magnetization, M'', not just ``M''. If including 
-%units in the label, present them within parentheses. Do not label axes only 
-%with units. In the example, write ``Magnetization (A/m)'' or ``Magnetization 
-%\{A[m(1)]\}'', not just ``A/m''. Do not label axes with a ratio of 
-%quantities and units. For example, write ``Temperature (K)'', not 
-%``Temperature/K''.
--
 
 
+%\appendix
 
-
-
-
+%\section{Chordal graphs and k-trees}
 
 
 
@@ -222,21 +226,8 @@ Typicality, Prototypes, CNNs, Siamese Network
 \bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
 \bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, ``A Detailed Review of Feature Extraction in Image Processing Systems'', FourthInternational Conference on Advanced Computing \& Communication Technologies, DOI \url{https://doi.org/10.1109/ACCT.2014.7}, 2014
 \bibitem{3} Dong Ping Tian, ``A Review on Image Feature Extraction and Representation Techniques'', International Journal of Multimedia and Ubiquitous Engineering, vol.8, pp. 385-396, July 2013
-\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
+\bibitem{4} Chiranji Lal Chowdhary, D.P.Acharjya, Segmentation and Feature Extraction in Medical Imaging: A Systematic Review, vol. 167, pp. 26-36, Sep. 2019, doi: \url{https://doi.org/10.1016/j.procs.2020.03.179}
+\bibitem{5} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
 
-
-
-
-
-
-
-%\bibitem{b1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, pp. 11, Nov. 2019
-%\bibitem{1} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-%\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-%\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-%\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-%\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-%\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
 \end{thebibliography}
-
 \end{document}
