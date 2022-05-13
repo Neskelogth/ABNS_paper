@@ -151,7 +151,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 		\subsubsection{Deformable shape analysis}
 		
 			A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
-			In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{5}. For the goal of the experiment proposed here, some deformable shape 
+			In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{4}. For the goal of the experiment proposed here, some deformable shape 
 			detection techniques can be useful. \\
 			The technique proposed strongly relies on the trinagulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
 			%The resulting approximation is as precise as the user decides, meaning that it's very flexible for the representation of shapes. 
@@ -171,10 +171,41 @@ Typicality, Prototypes, CNNs, Siamese Network
 			
 		\subsubsection{Machine learning based feature extraction techniques}
 			
-		%\subsubsection{Madical imaging feature extraction techniques}
-		
+			After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
+			In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{5}. Although this paper examines the techniques for 
+			3D shapes, it's very likely that it can be adapted to extract 2D features from images.\\
+			The background of this experiments is formed of some concepts that are not immediate. One of the concepts used as background is the minimum distortion correspondence. The other are, for example, 
+			descriptor learning, functional maps and deep functional maps. These concepts serve as a base for all the work done later. \\
+			In particular, the authors focus on unsupervised deep functional maps. The authors state that the main contribution of their paper is that they introduce a technique with which they can 
+			avoid annotating a lot of data before training a model. After reducing the number of vertices to a number between 5000 and 7000, the authors used a deep functional map network. The inputs are 
+			fed to two redisual neural networks, which compute a dense descriptor fields. These descriptors, are the inputs to the functional map layer. Lastly, as post processing, a point-wise map recovery was 
+			applied and, after that, the shape was upscaled to the original resolution. 
+			
+			\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{6}. This paper has the objective to classify images suing CNNs to understand if a patient 
+			has pneumonia or not. After the preprocessing, in which the authors just resized the images, there is the feature extraction process. For this step, the authors used different pretrained models.
+			In this paper's results it's reported that the best model architecture is DenseNet-169. This kind of neural netowrk, called Dense Nets, overcomes the problem of gradient vanishing. The model used in 
+			particular for the work of this paper had 4 dense blocks and 3 transition layers. Then there is a classification layer. 
+			
+			\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumors. The process described in the paper is divided into three points. The 
+			first one is preprocessing, the second is feature extraction and the third is brain tumor classification. The first step is just to rescale the values to the range $[0,\ 1]$. The feature extractor 
+			used is the GIST descriptor. The GIST is then combined with a Gabor filter and produces a total of $mxnx4x4$ GIST feature vectors. There is a variant of the GIST descriptor, the 
+			PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
+			After this step, the only thing left is the classification of the tumor, which was performed with a RELM classifier. 
+			
 		\subsubsection{Hyperspectral images feature extraction}
 			
+
+
+		\subsubsection{Considerations about feature extraction}
+		
+		
+		\subsection{Networks}
+		
+		\subsubsection{Convolutional Neural Network}
+		
+		\subsubsection{Siamese Neural Network}
+
+
 \section{Data Collection}
 \section{Feature Extraction}
 \section{Prototype Construction}
@@ -223,11 +254,14 @@ Typicality, Prototypes, CNNs, Siamese Network
 
 \begin{thebibliography}{00}
 
-\bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, ``Edge Detection Techniques on Digital Images - A Review'', International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
-\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, ``A Detailed Review of Feature Extraction in Image Processing Systems'', FourthInternational Conference on Advanced Computing \& Communication Technologies, DOI \url{https://doi.org/10.1109/ACCT.2014.7}, 2014
+\bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, Edge Detection Techniques on Digital Images - A Review, International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
+\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, A Detailed Review of Feature Extraction in Image Processing Systems, FourthInternational Conference on Advanced Computing \& Communication Technologies, DOI \url{https://doi.org/10.1109/ACCT.2014.7}, 2014
 \bibitem{3} Dong Ping Tian, ``A Review on Image Feature Extraction and Representation Techniques'', International Journal of Multimedia and Ubiquitous Engineering, vol.8, pp. 385-396, July 2013
-\bibitem{4} Chiranji Lal Chowdhary, D.P.Acharjya, Segmentation and Feature Extraction in Medical Imaging: A Systematic Review, vol. 167, pp. 26-36, Sep. 2019, doi: \url{https://doi.org/10.1016/j.procs.2020.03.179}
-\bibitem{5} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
+\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
+\bibitem{5} Halimi, Oshri and Litany, Or and Rodola, Emanuele and Bronstein, Alex M and Kimmel, Ron, Unsupervised learning of dense shape correspondence, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 4370-4379, 2019
+\bibitem{6} Varshni, Dimpy and Thakral, Kartik and Agarwal, Lucky and Nijhawan, Rahul and Mittal, Ankush, Pneumonia detection using CNN based feature extraction, 2019 IEEE international conference on electrical, computer and communication technologies (ICECCT), pp. 1-7, 2019
+\bibitem{7} Gumaei, Abdu and Hassan, Mohammad Mehedi and Hassan, Md Rafiul and Alelaiwi, Abdulhameed and Fortino, Giancarlo, A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification, vol. 7, pp. 36266--36273, 2019
+
 
 \end{thebibliography}
 \end{document}
