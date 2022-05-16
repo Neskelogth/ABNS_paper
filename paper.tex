@@ -26,7 +26,7 @@ samuel.kostadinov@unitn.it}
 
 \begin{abstract}
 
-	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 
 \end{abstract}
 
@@ -119,7 +119,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 					\item \textbf{Transition feature}:
 					
 						This method is based on the transition from background to foreground. 
-						There are different techniques that can work both on grey level images or in 4-connected or 8-connected images.
+						There are different techniques that can work both on gray level images or in 4-connected or 8-connected images.
 					
 				\end{itemize}
 			
@@ -148,62 +148,92 @@ Typicality, Prototypes, CNNs, Siamese Network
 			
 			\end{itemize}
 			
-		\subsubsection{Deformable shape analysis}
+			\subsubsection{Deformable shape analysis}
 		
-			A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
-			In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{4}. For the goal of the experiment proposed here, some deformable shape 
-			detection techniques can be useful. \\
-			The technique proposed strongly relies on the trinagulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
-			%The resulting approximation is as precise as the user decides, meaning that it's very flexible for the representation of shapes. 
-			%In particular, in the paper the triangulation was done with a technique called constrained Delaunay triangulation (CDT), because of its tight relation with the medial axis transform. 
-			The author also make use of the properties of chordal graphs and k-trees.\\
-			The technique described in this paper falls under the category of deformable template matching. One of the components of the method is the energy function, a function that associates a cost with every 
-			possible transformation. The objective is to find the transformation with the lowest possible cost. This component is very flexible, since depending on the formulation of the energy function the costs 
-			can be tuned even for individual triangles. Moreover, it is also possible to integrate learning techniques to learn deformation parameters.
-			Since the possible non-rigid transformations of a template are numerous, this kind of techniques usually requires an initialization near to the correct solution, 
-			although this is not required for the algorithm presented in this paper. 
-			For the implementation of the algorithm itself, a techniques called nonserial dynamic programming was the key factor. In fact, using the order of perfect elimination (property of the every triangulated 
-			simple polygon), the algorithm computes the optimal position of every vertex with respect to the other vertices. Once the algorithm solves for the last vertex, it can 
-			update all the others as in typical dynamic programming and obtain the optimal location for every vertex.\\
-			The learning of the parameters can be seen as looking for the location with the highest. The matching problem is then fed to a statistical framework that computes the configuration minimizing the 
-			energy cost, which corresponds to the best template match.
+				A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
+				In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{4}. For the goal of the experiment proposed here, some deformable shape 
+				detection techniques can be useful. \\
+				The technique proposed strongly relies on the triangulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
+				%The resulting approximation is as precise as the user decides, meaning that it's very flexible for the representation of shapes. 
+				%In particular, in the paper the triangulation was done with a technique called constrained Delaunay triangulation (CDT), because of its tight relation with the medial axis transform. 
+				The author also make use of the properties of chordal graphs and k-trees.\\
+				The technique described in this paper falls under the category of deformable template matching. One of the components of the method is the energy function, a function that associates a cost with every 
+				possible transformation. The objective is to find the transformation with the lowest possible cost. This component is very flexible, since depending on the formulation of the energy function the costs 
+				can be tuned even for individual triangles. Moreover, it is also possible to integrate learning techniques to learn deformation parameters.
+				Since the possible non-rigid transformations of a template are numerous, this kind of techniques usually requires an initialization near to the correct solution, 
+				although this is not required for the algorithm presented in this paper. 
+				For the implementation of the algorithm itself, a techniques called non-serial dynamic programming was the key factor. In fact, using the order of perfect elimination (property of the every triangulated 
+				simple polygon), the algorithm computes the optimal position of every vertex with respect to the other vertices. Once the algorithm solves for the last vertex, it can 
+				update all the others as in typical dynamic programming and obtain the optimal location for every vertex.\\
+				The learning of the parameters can be seen as looking for the location with the highest. The matching problem is then fed to a statistical framework that computes the configuration minimizing the 
+				energy cost, which corresponds to the best template match.
+				
 			
-			
-		\subsubsection{Machine learning based feature extraction techniques}
-			
-			After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
-			In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{5}. Although this paper examines the techniques for 
-			3D shapes, it's very likely that it can be adapted to extract 2D features from images.\\
-			The background of this experiments is formed of some concepts that are not immediate. One of the concepts used as background is the minimum distortion correspondence. The other are, for example, 
-			descriptor learning, functional maps and deep functional maps. These concepts serve as a base for all the work done later. \\
-			In particular, the authors focus on unsupervised deep functional maps. The authors state that the main contribution of their paper is that they introduce a technique with which they can 
-			avoid annotating a lot of data before training a model. After reducing the number of vertices to a number between 5000 and 7000, the authors used a deep functional map network. The inputs are 
-			fed to two redisual neural networks, which compute a dense descriptor fields. These descriptors, are the inputs to the functional map layer. Lastly, as post processing, a point-wise map recovery was 
-			applied and, after that, the shape was upscaled to the original resolution. 
-			
-			\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{6}. This paper has the objective to classify images suing CNNs to understand if a patient 
-			has pneumonia or not. After the preprocessing, in which the authors just resized the images, there is the feature extraction process. For this step, the authors used different pretrained models.
-			In this paper's results it's reported that the best model architecture is DenseNet-169. This kind of neural netowrk, called Dense Nets, overcomes the problem of gradient vanishing. The model used in 
-			particular for the work of this paper had 4 dense blocks and 3 transition layers. Then there is a classification layer. 
-			
-			\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumors. The process described in the paper is divided into three points. The 
-			first one is preprocessing, the second is feature extraction and the third is brain tumor classification. The first step is just to rescale the values to the range $[0,\ 1]$. The feature extractor 
-			used is the GIST descriptor. The GIST is then combined with a Gabor filter and produces a total of $mxnx4x4$ GIST feature vectors. There is a variant of the GIST descriptor, the 
-			PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
-			After this step, the only thing left is the classification of the tumor, which was performed with a RELM classifier. 
-			
-		\subsubsection{Hyperspectral images feature extraction}
-			
-			
+			\subsubsection{Machine learning based feature extraction techniques} \label{mlfe}
+				
+				After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
+				In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{5}. Although this paper examines the techniques for 
+				3D shapes, it's very likely that it can be adapted to extract 2D features from images.\\
+				The background of this experiments is formed of some concepts that are not immediate. One of the concepts used as background is the minimum distortion correspondence. The other are, for example, 
+				descriptor learning, functional maps and deep functional maps. These concepts serve as a base for all the work done later. \\
+				In particular, the authors focus on unsupervised deep functional maps. The authors state that the main contribution of their paper is that they introduce a technique with which they can 
+				avoid annotating a lot of data before training a model. After reducing the number of vertices to a number between 5000 and 7000, the authors used a deep functional map network. The inputs are 
+				fed to two residual neural networks, which compute a dense descriptor fields. These descriptors, are the inputs to the functional map layer. Lastly, as post processing, a point-wise map recovery was 
+				applied and, after that, the shape was upscaled to the original resolution. 
+				
+				\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{6}. This paper has the objective to classify images suing CNNs to understand if a patient 
+				has pneumonia or not. After the preprocessing, in which the authors just resized the images, there is the feature extraction process. For this step, the authors used different pretrained models.
+				In this paper's results it's reported that the best model architecture is DenseNet-169. This kind of neural network, called Dense Nets, overcomes the problem of gradient vanishing. The model used in 
+				particular for the work of this paper had 4 dense blocks and 3 transition layers. Then there is a classification layer. 
+				
+				\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumors. The process described in the paper is divided into three points. The 
+				first one is preprocessing, the second is feature extraction and the third is brain tumor classification. The first step is just to rescale the values to the range $[0,\ 1]$. The feature extractor 
+				used is the GIST descriptor. The GIST is then combined with a Gabor filter and produces a total of $mxnx4x4$ GIST feature vectors. There is a variant of the GIST descriptor, the 
+				PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
+				After this step, the only thing left is the classification of the tumor, which was performed with a RELM classifier. 
+				
+			\subsubsection{Hyperspectral images feature extraction}
+				
+				Although there exists techniques that can extract features from hyperspectral images, this kind of images are created to capture the entire spectrum. This fact means that these images can capture 
+				more information then what the human eye can. techniques involve, in the majority of the cases, learning of some form, especially in form of neural networks, in particular convolutional recurrent 
+				networks, as seen in a paper by Hu et al.~\cite{8} and in a paper by Rasti et al.~\cite{9}. Probably, it's more meaningful to use normal images than these ones, since, as just 
 
-		\subsubsection{Considerations about feature extraction}
-		
+			\subsubsection{Considerations about feature extraction}
+			
+				Although there are different methods to extract feature, the ones that require neural networks are not easily understandable by humans. The classic feature extraction techniques have a more 
+				human comprehensible result, while the machine learning techniques extract feature in the form of vectors of attributes. Both of these can be used in the following steps, but the procedure requires 
+				little adjustments in the steps based on the chosen procedure.
 		
 		\subsection{Networks}
 		
-		\subsubsection{Convolutional Neural Network}
+			Neural Networks are a powerful instrument in the hands of computer scientists. There exists a lot of different types of artificial neural networks, each with its own peculiarities. In particular, for this 
+			experiment the one needed will be, most likely, just convolutional neural networks and siamese neural networks. 
 		
-		\subsubsection{Siamese Neural Network}
+			\subsubsection{Convolutional Neural Network (CNN)}
+			
+				Convolutional neural networks are not an extremely recent type of neural network, especially if we consider that LeNet-5 was created in 1998. Scientists have dealt with CNNs for some years. Now, as of 2022, 
+				CNNs are mostly used to deal with images.\\
+				In 2017, Wu wrote a paper that had the purpose to serve as an introduction to CNNs~\cite{10}. These networks use mostly three kind of layers: Dense layers (which are fully connected layers), 
+				convolution layers and pooling layers. In the following, there will be a short description of each kind of layer. 
+				\begin{itemize}
+					
+					\item \textbf{Dense layer}:\\
+						The dense layer is not peculiar of CNNs, in fact it's found in almost all types of neural networks. It consists of a set of neurons that are connected with every neuron of the previous 
+						layer. Dense layers are usually used towards the end of the network.
+					
+					\item \textbf{Convolutional layer}:\\
+						Convolutional layers just compute a convolution operation. This helps reducing the input size and extract meaningful features from the image taken as input. These layers are usually used 
+						in the first layers of the neural network.
+					
+					\item \textbf{Pooling layers}:\\
+						Pooling layers downsamples the image to reducing the number of parameters needed. These layers are usually alternated with the convolution layers, so are used at the beginning of a neural network.
+						
+				\end{itemize}
+				
+				The applications of deep learning and CNNs are numerous. As shown in \ref{mlfe} there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
+				the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{11} by Alzubaidi et al.
+		
+			\subsubsection{Siamese Neural Network}
 
 
 \section{Data Collection}
@@ -246,23 +276,20 @@ Typicality, Prototypes, CNNs, Siamese Network
 %\end{figure}
 
 
-%\appendix
-
-%\section{Chordal graphs and k-trees}
-
-
 
 \begin{thebibliography}{00}
 
 \bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, Edge Detection Techniques on Digital Images - A Review, International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
-\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, A Detailed Review of Feature Extraction in Image Processing Systems, FourthInternational Conference on Advanced Computing \& Communication Technologies, DOI \url{https://doi.org/10.1109/ACCT.2014.7}, 2014
+\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, A Detailed Review of Feature Extraction in Image Processing Systems, Fourth International Conference on Advanced Computing \& Communication Technologies, DOI: https://doi.org/10.1109/ACCT.2014.7, 2014
 \bibitem{3} Dong Ping Tian, ``A Review on Image Feature Extraction and Representation Techniques'', International Journal of Multimedia and Ubiquitous Engineering, vol.8, pp. 385-396, July 2013
-\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: \url{https://doi.org/10.1109/TPAMI.2005.35} 
+\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: https://doi.org/10.1109/TPAMI.2005.35
 \bibitem{5} Halimi, Oshri and Litany, Or and Rodola, Emanuele and Bronstein, Alex M and Kimmel, Ron, Unsupervised learning of dense shape correspondence, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 4370-4379, 2019
 \bibitem{6} Varshni, Dimpy and Thakral, Kartik and Agarwal, Lucky and Nijhawan, Rahul and Mittal, Ankush, Pneumonia detection using CNN based feature extraction, 2019 IEEE international conference on electrical, computer and communication technologies (ICECCT), pp. 1-7, 2019
 \bibitem{7} Gumaei, Abdu and Hassan, Mohammad Mehedi and Hassan, Md Rafiul and Alelaiwi, Abdulhameed and Fortino, Giancarlo, A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification, vol. 7, pp. 36266--36273, 2019
 \bibitem{8} Hu, Wen-Shuai and Li, Heng-Chao and Pan, Lei and Li, Wei and Tao, Ran and Du, Qian, Spatial--spectral feature extraction via deep ConvLSTM neural networks for hyperspectral image classification, vol. 58, pp. 4237--4250, 2020
-
+\bibitem{9} Rasti, Behnood and Hong, Danfeng and Hang, Renlong and Ghamisi, Pedram and Kang, Xudong and Chanussot, Jocelyn and Benediktsson, Jon Atli, Feature extraction for hyperspectral imagery: The evolution from shallow to deep: Overview and toolbox, IEEE Geoscience and Remote Sensing Magazine, vol.8, pp.60-88, 2020
+\bibitem{10} Jianxin Wu, Introduction to convolutional neural networks, National Key Lab for Novel Software Technology. Nanjing University. China, vol. 5, n. 33, 2017
+\bibitem{11} Alzubaidi, Laith and Zhang, Jinglan and Humaidi, Amjad J and Al-Dujaili, Ayad and Duan, Ye and Al-Shamma, Omran and Santamaría, J and Fadhel, Mohammed A and Al-Amidie, Muthana and Farhan, Laith, Review of deep learning: Concepts, CNN architectures, challenges, applications, future directions, Journal of big Data, vol. 8, pp. 1-74, 2021
 
 \end{thebibliography}
 \end{document}
