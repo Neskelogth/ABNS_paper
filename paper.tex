@@ -76,7 +76,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 					\item \textbf{Diagonal based feature extraction techniques}:
 					
 						In this procedure, the image is divided into zones formed by small squares of pixels. 
-						In this case, there would be 19 diagonal lines. 
+						In the paper's case, there would be 19 diagonal lines. 
 						The value of each pixel in these diagonals is summed to obtain a single sub feature. 
 						Then we can extract a feature by averaging the sub features. 
 						With this method, we can extract a feature for every zone. 
@@ -226,14 +226,21 @@ Typicality, Prototypes, CNNs, Siamese Network
 						in the first layers of the neural network.
 					
 					\item \textbf{Pooling layers}:\\
-						Pooling layers downsamples the image to reducing the number of parameters needed. These layers are usually alternated with the convolution layers, so are used at the beginning of a neural network.
+						Pooling layers downsample the image to reducing the number of parameters needed. These layers are usually alternated with the convolution layers, so are used at the beginning of a neural network.
 						
 				\end{itemize}
 				
-				The applications of deep learning and CNNs are numerous. As shown in \ref{mlfe} there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
+				The applications of deep learning and CNNs are numerous. As shown previously, there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
 				the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{11} by Alzubaidi et al.
 		
 			\subsubsection{Siamese Neural Network}
+
+				Siamese neural networks, also called twin networks, are a more recent advance in computer science. These neural networks have a different structure from convolutional neural networks. The 
+				structure of siamese neural networks is peculiar. In fact, there are two identical networks that process different inputs and, after that, merge in a single layer that measures the similarity between 
+				the two outputs of the two networks. The siamese neural networks have a different application compared to CNNs, in fact twin networks are mainly used to measure similarity of two objects. 
+				In the case of this paper, the siamese neural networks are used for image matching. This is not the first time that siamese networks are used for image matching, as proved by a paper written in 2016 by 
+				Melekhov et al., but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
+				paper, the objective is to find a similarity measure with a prototype. 
 
 
 \section{Data Collection}
@@ -290,6 +297,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 \bibitem{9} Rasti, Behnood and Hong, Danfeng and Hang, Renlong and Ghamisi, Pedram and Kang, Xudong and Chanussot, Jocelyn and Benediktsson, Jon Atli, Feature extraction for hyperspectral imagery: The evolution from shallow to deep: Overview and toolbox, IEEE Geoscience and Remote Sensing Magazine, vol.8, pp.60-88, 2020
 \bibitem{10} Jianxin Wu, Introduction to convolutional neural networks, National Key Lab for Novel Software Technology. Nanjing University. China, vol. 5, n. 33, 2017
 \bibitem{11} Alzubaidi, Laith and Zhang, Jinglan and Humaidi, Amjad J and Al-Dujaili, Ayad and Duan, Ye and Al-Shamma, Omran and Santamaría, J and Fadhel, Mohammed A and Al-Amidie, Muthana and Farhan, Laith, Review of deep learning: Concepts, CNN architectures, challenges, applications, future directions, Journal of big Data, vol. 8, pp. 1-74, 2021
+\bibitem{12} Melekhov, Iaroslav and Kannala, Juho and Rahtu, Esa, Siamese network features for image matching, 2016 23rd International Conference on Pattern Recognition (ICPR), vol. 1, pp. 378-388, 2016, doi:10.1109/ICPR.2016.7899663
 
 \end{thebibliography}
 \end{document}
