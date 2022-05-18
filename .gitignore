@@ -1,4 +1,5 @@
-
+*.pdf
 compile.cmd
 notes.txt
-paper.docx
+*.docx
+*.doc
