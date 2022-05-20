@@ -1,12 +1,13 @@
 \documentclass[conference]{IEEEtran}
-\IEEEoverridecommandlockouts
+% \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
-\usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-\usepackage{xcolor}
+\usepackage{xcolour}
+\usepackage[backend=biber, sorting=none]{biblatex}
+\addbibresource{bibliography.bib}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -63,10 +64,10 @@ Typicality, Prototypes, CNNs, Siamese Network
 				These are usually divided into two groups, gradient-based and Gaussian-based. 
 				Some examples are the Sobel operator and the Canny edge detector. 
 				Each of the methods has pros and cons. 
-				It's the user's job to find the most appropriate for its goal~\cite{1}.\\
+				It's the user's job to find the most appropriate for its goal~\cite{owotogbe2019edge}.\\
 				
 				After edge detection, other techniques began to spread for feature extraction. 
-				In a paper by Kumar and Kumar Bhatia written in 2014 \cite{2}, 
+				In a paper by Kumar and Kumar Bhatia written in 2014 \cite{kumar2014detailed}, 
 				there are some examples of techniques used to extract features. 
 				In the first one, the authors present different types of features and then some techniques to extract them. 
 				These are:
@@ -128,17 +129,17 @@ Typicality, Prototypes, CNNs, Siamese Network
 			were excluded from the list. These excluded techniques can still be used, but may have worse results or may require some adaptation. 
 			The techniques were: Fractal theory techniques, Shadow features of character, Sector approach for feature extraction, 
 			Extraction of distance and angle features, Extraction of occupancy and end-point features, and Zernike moments.\\
-			In another paper, written in 2013 by Tian \cite{3}, there are some other techniques cited that may result useful:
+			In another paper, written in 2013 by Tian \cite{ping2013review}, there are some other techniques cited that may result useful:
 			
 			\begin{itemize}
 			
-				\item \textbf{Color features}:
+				\item \textbf{colour features}:
 					
-					Color is one of the most important features humans can perceive. 
-					The features we can extract depend on the color space, but once it's defined there are some possibilities. 
-					A few examples are color histograms, color moments and color coherence vectors. 
-					One of the simple and meaningful, according to the authors, is color moments. 
-					The most common color moments are the mean, the standard deviation and the skewness. 
+					colour is one of the most important features humans can perceive. 
+					The features we can extract depend on the colour space, but once it's defined there are some possibilities. 
+					A few examples are colour histograms, colour moments and colour coherence vectors. 
+					One of the simple and meaningful, according to the authors, is colour moments. 
+					The most common colour moments are the mean, the standard deviation and the skewness. 
 					
 				\item \textbf{Texture features}:
 				
@@ -151,7 +152,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 			\subsubsection{Deformable shape analysis}
 		
 				A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
-				In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{4}. For the goal of the experiment proposed here, some deformable shape 
+				In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{felzenszwalb2005representation}. For the goal of the experiment proposed here, some deformable shape 
 				detection techniques can be useful. \\
 				The technique proposed strongly relies on the triangulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
 				%The resulting approximation is as precise as the user decides, meaning that it's very flexible for the representation of shapes. 
@@ -171,7 +172,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 			\subsubsection{Machine learning based feature extraction techniques} \label{mlfe}
 				
 				After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
-				In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{5}. Although this paper examines the techniques for 
+				In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{halimi2019unsupervised}. Although this paper examines the techniques for 
 				3D shapes, it's very likely that it can be adapted to extract 2D features from images.\\
 				The background of this experiments is formed of some concepts that are not immediate. One of the concepts used as background is the minimum distortion correspondence. The other are, for example, 
 				descriptor learning, functional maps and deep functional maps. These concepts serve as a base for all the work done later. \\
@@ -180,22 +181,22 @@ Typicality, Prototypes, CNNs, Siamese Network
 				fed to two residual neural networks, which compute a dense descriptor fields. These descriptors, are the inputs to the functional map layer. Lastly, as post processing, a point-wise map recovery was 
 				applied and, after that, the shape was upscaled to the original resolution. 
 				
-				\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{6}. This paper has the objective to classify images suing CNNs to understand if a patient 
+				\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{varshni2019pneumonia}. This paper has the objective to classify images suing CNNs to understand if a patient 
 				has pneumonia or not. After the preprocessing, in which the authors just resized the images, there is the feature extraction process. For this step, the authors used different pretrained models.
 				In this paper's results it's reported that the best model architecture is DenseNet-169. This kind of neural network, called Dense Nets, overcomes the problem of gradient vanishing. The model used in 
 				particular for the work of this paper had 4 dense blocks and 3 transition layers. Then there is a classification layer. 
 				
-				\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumors. The process described in the paper is divided into three points. The 
-				first one is preprocessing, the second is feature extraction and the third is brain tumor classification. The first step is just to rescale the values to the range $[0,\ 1]$. The feature extractor 
+				\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumours~\cite{gumaei2019hybrid}. The process described in the paper is divided into three points. The 
+				first one is preprocessing, the second is feature extraction and the third is brain tumour classification. The first step is just to rescale the values to the range $[0,\ 1]$. The feature extractor 
 				used is the GIST descriptor. The GIST is then combined with a Gabor filter and produces a total of $mxnx4x4$ GIST feature vectors. There is a variant of the GIST descriptor, the 
 				PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
-				After this step, the only thing left is the classification of the tumor, which was performed with a RELM classifier. 
+				After this step, the only thing left is the classification of the tumour, which was performed with a RELM classifier. 
 				
 			\subsubsection{Hyperspectral images feature extraction}
 				
 				Although there exists techniques that can extract features from hyperspectral images, this kind of images are created to capture the entire spectrum. This fact means that these images can capture 
 				more information then what the human eye can. techniques involve, in the majority of the cases, learning of some form, especially in form of neural networks, in particular convolutional recurrent 
-				networks, as seen in a paper by Hu et al.~\cite{8} and in a paper by Rasti et al.~\cite{9}. Probably, it's more meaningful to use normal images than these ones, since, as just 
+				networks, as seen in a paper by Hu et al.~\cite{hu2020spatial} and in a paper by Rasti et al.~\cite{rasti2020feature}. Probably, it's more meaningful to use normal images than these ones, since, as just 
 
 			\subsubsection{Considerations about feature extraction}
 			
@@ -212,7 +213,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 			
 				Convolutional neural networks are not an extremely recent type of neural network, especially if we consider that LeNet-5 was created in 1998. Scientists have dealt with CNNs for some years. Now, as of 2022, 
 				CNNs are mostly used to deal with images.\\
-				In 2017, Wu wrote a paper that had the purpose to serve as an introduction to CNNs~\cite{10}. These networks use mostly three kind of layers: Dense layers (which are fully connected layers), 
+				In 2017, Wu wrote a paper that had the purpose to serve as an introduction to CNNs~\cite{wu2017introduction}. These networks use mostly three kind of layers: Dense layers (which are fully connected layers), 
 				convolution layers and pooling layers. In the following, there will be a short description of each kind of layer. 
 				\begin{itemize}
 					
@@ -230,7 +231,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 				\end{itemize}
 				
 				The applications of deep learning and CNNs are numerous. As shown previously, there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
-				the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{11} by Alzubaidi et al.
+				the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{alzubaidi2021review} by Alzubaidi et al.
 		
 			\subsubsection{Siamese Neural Network}
 
@@ -238,11 +239,25 @@ Typicality, Prototypes, CNNs, Siamese Network
 				structure of siamese neural networks is peculiar. In fact, there are two identical networks that process different inputs and, after that, merge in a single layer that measures the similarity between 
 				the two outputs of the two networks. The siamese neural networks have a different application compared to CNNs, in fact twin networks are mainly used to measure similarity of two objects. 
 				In the case of this paper, the siamese neural networks are used for image matching. This is not the first time that siamese networks are used for image matching, as proved by a paper written in 2016 by 
-				Melekhov et al., but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
+				Melekhov et al.~\cite{melekhov2016siamese}, but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
 				paper, the objective is to find a similarity measure with a prototype. 
 		
 		\subsection{Similarity judgments}
-
+			
+			In the past there have been some works regarding image similarity, like for example the one presented by Appalaraju and Chaoji in 2017~\cite{appalaraju2017image}. In this work they explore the possibility to 
+			find a similarity measure for image retrieval. To achieve this goal, they implemented a siamese neural network that uses two identical multi-scale CNNs that share weights. The ouput of the 
+			network is binary, being $1$ the label to predict in case of negative examples and $0$ the label to predict in case of positive example. The loss function used in this work is a contrastive loss. This paper 
+			then proceeds to explain a technique called Online Pair Mining Strategy (OPMS), inspyred by curriculum learning, that helps reducing the training time. \\
+			This is not the only work that uses neural networks to learn similarity, in fact there are also other application fields for similarity study. One of them is healthcare, as shown in a paper by Suo et al., written in 
+			2017, that introduces a model used to make personalized prediction of diseases for patients, basing the prediction on a similarity related method, learned using CNNs~\cite{8217759}. In this paper, before 
+			learning the actual similarity measure, the authors processed the input through a CNN and performed a step they call ``Time fusion''. This step let them incorporate the time information and 
+			weight differently eventual symptoms based on their temporal distance from the onset of the disease. Only after this step the authors proceeded to learn a similarity metric, basing the learning 
+			on CNNs.\\
+			Another paper, written by Chopra et al. in 2005, used a method similar to the one written by Appalaraju. In this work, the authors used a siamese architecture to learn a similarity metric and applied it 
+			in the field of face verification~\cite{chopra2005learning}.\\
+			More interestingly, there are also other papers, in particular a paper by Attarian et al. written in 2020 uses $VGG16$. This paper's goal is to use this CNN to predict human similarity 
+			judgments~\cite{attarian2020transforming}. Using $VGG16$, the authors were able to achieve good results, with over 90\% in validation accuracy.
+			
 \section{Data Collection}
 \section{Feature Extraction}
 \section{Prototype Construction}
@@ -252,52 +267,8 @@ Typicality, Prototypes, CNNs, Siamese Network
 \section{Conclusion}
 \section{Possible Further Experiments}
 
-%\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-%bottom of columns. Avoid placing them in the middle of columns. Large 
-%figures and tables may span across both columns. Figure captions should be 
-%below the figures; table heads should appear above the tables. Insert 
-%figures and tables after they are cited in the text. Use the abbreviation 
-%``Fig.~\ref{fig}'', even at the beginning of a sentence.
 
-%\begin{table}[htbp]
-%\caption{Table Type Styles}
-%\begin{center}
-%\begin{tabular}{|c|c|c|c|}
-%\hline
-%\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-%\cline{2-4} 
-%\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-%\hline
-%copy& More table copy$^{\mathrm{a}}$& &  \\
-%\hline
-%\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-%\end{tabular}
-%\label{tab1}
-%\end{center}
-%\end{table}
+\nocite{*}
+\printbibliography
 
-%\begin{figure}[htbp]
-%\centerline{\includegraphics{fig1.png}}
-%\caption{Example of a figure caption.}
-%\label{fig}
-%\end{figure}
-
-
-
-\begin{thebibliography}{00}
-
-\bibitem{1} J. S. Owotogbe,T. S. Ibiyemi, and B. A. Adu, Edge Detection Techniques on Digital Images - A Review, International Journal of Innovative Science and Research Technology, vol. 4, issue 11, Nov. 2019
-\bibitem{2} Gaurav Kumar, Pradeep Kumar Bhatia, A Detailed Review of Feature Extraction in Image Processing Systems, Fourth International Conference on Advanced Computing \& Communication Technologies, DOI: https://doi.org/10.1109/ACCT.2014.7, 2014
-\bibitem{3} Dong Ping Tian, ``A Review on Image Feature Extraction and Representation Techniques'', International Journal of Multimedia and Ubiquitous Engineering, vol.8, pp. 385-396, July 2013
-\bibitem{4} Pedro F. Felzenszwalb, ``Representation and Detection of Deformable Shapes'', IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 27, no. 2, pp. 208-220, Feb. 2005, doi: https://doi.org/10.1109/TPAMI.2005.35
-\bibitem{5} Halimi, Oshri and Litany, Or and Rodola, Emanuele and Bronstein, Alex M and Kimmel, Ron, Unsupervised learning of dense shape correspondence, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 4370-4379, 2019
-\bibitem{6} Varshni, Dimpy and Thakral, Kartik and Agarwal, Lucky and Nijhawan, Rahul and Mittal, Ankush, Pneumonia detection using CNN based feature extraction, 2019 IEEE international conference on electrical, computer and communication technologies (ICECCT), pp. 1-7, 2019
-\bibitem{7} Gumaei, Abdu and Hassan, Mohammad Mehedi and Hassan, Md Rafiul and Alelaiwi, Abdulhameed and Fortino, Giancarlo, A hybrid feature extraction method with regularized extreme learning machine for brain tumor classification, vol. 7, pp. 36266--36273, 2019
-\bibitem{8} Hu, Wen-Shuai and Li, Heng-Chao and Pan, Lei and Li, Wei and Tao, Ran and Du, Qian, Spatial--spectral feature extraction via deep ConvLSTM neural networks for hyperspectral image classification, vol. 58, pp. 4237--4250, 2020
-\bibitem{9} Rasti, Behnood and Hong, Danfeng and Hang, Renlong and Ghamisi, Pedram and Kang, Xudong and Chanussot, Jocelyn and Benediktsson, Jon Atli, Feature extraction for hyperspectral imagery: The evolution from shallow to deep: Overview and toolbox, IEEE Geoscience and Remote Sensing Magazine, vol.8, pp.60-88, 2020
-\bibitem{10} Jianxin Wu, Introduction to convolutional neural networks, National Key Lab for Novel Software Technology. Nanjing University. China, vol. 5, n. 33, 2017
-\bibitem{11} Alzubaidi, Laith and Zhang, Jinglan and Humaidi, Amjad J and Al-Dujaili, Ayad and Duan, Ye and Al-Shamma, Omran and Santamaría, J and Fadhel, Mohammed A and Al-Amidie, Muthana and Farhan, Laith, Review of deep learning: Concepts, CNN architectures, challenges, applications, future directions, Journal of big Data, vol. 8, pp. 1-74, 2021
-\bibitem{12} Melekhov, Iaroslav and Kannala, Juho and Rahtu, Esa, Siamese network features for image matching, 2016 23rd International Conference on Pattern Recognition (ICPR), vol. 1, pp. 378-388, 2016, doi:10.1109/ICPR.2016.7899663
-
-\end{thebibliography}
 \end{document}

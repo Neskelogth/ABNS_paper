@@ -3,3 +3,6 @@ compile.cmd
 notes.txt
 *.docx
 *.doc
+automate.cmd
+compile-bib.bat
+compile-paper.bat
