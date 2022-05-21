@@ -7,13 +7,15 @@
 \usepackage{textcomp}
 \usepackage{xcolour}
 \usepackage[backend=biber, sorting=none]{biblatex}
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage[colorlinks=true, urlcolor=blue, pdfborder={0 0 0}]{hyperref}
 \addbibresource{bibliography.bib}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \title{Proposition of a New Experiment to Better Understand the Relation Between Typicality and Prototypes}
-
 
 
 \author{\IEEEauthorblockN{Samuel Kostadinov}
@@ -27,8 +29,8 @@ samuel.kostadinov@unitn.it}
 
 \begin{abstract}
 
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-
+	\lipsum[1]
+	
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -40,7 +42,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 	
 	The typicality of a concept is a topic that needs a lot of exploration, since it's difficult to evaluate precisely the typicality of an object 
 	and also because the people's brains are always a little different from each other. The experiment I would like to propose, has the objective of 
-	make sure we can understand better the bond between the perceived typicality of an object that belongs to a category and the prototype of that category.
+	making us understand better the bond between the perceived typicality of an object that belongs to a category and the prototype of that category.
 	This can help the scientists to better understand how knowledge is organized in the brain. This experiment consists in different phases, such as
 	data collection, feature extraction, prototype construction and similarity judgment.
 
@@ -261,14 +263,22 @@ Typicality, Prototypes, CNNs, Siamese Network
 \section{Data Collection}
 
 	\subsection{Image collection}
-		Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
-		vision~\footnote{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}, that could help. Some of the dataset reported there are famous, like ImageNet or Google's Open Images. The 
-		best for this kind of work, though, is to have a dataset that bases every image on the same ``macrocategory'', like for example a dataset made of images of birds.
-	
-	\subsection{Typicaity values}
 		
+		Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
+		vision~\footnote{\url{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}}, that could help. Some of the dataset reported there are famous, like ImageNet or Google's Open Images. The 
+		best for this kind of work, though, is to have a dataset that bases every image on the same ``macro-category'', like for example a dataset made of images of birds.
+	
+	\subsection{Typicality values}
+		
+		In this experiment, typicality judgments play a crucial role. To gather enough data about the perceived typicality of images, a form is necessary. This survey should be structured in a way that presents an 
+		image ad a time to the subject that is taking the survey and asks to rate the typicality of the object portrayed in the image, possibly in a given range. If that's the case, a range between $1$ and $10$ 
+		could be the best decision since people are quite used to rate in this range. Once there are enough results, the various rates should be averaged so that there is a single measure that takes into 
+		account every rate taken from the survey. The number of people that should participate in the experiment should be high enough to be a meaningful statistical group.
 
-%\section{Feature Extraction}
+\section{Feature Extraction}
+
+	
+
 %\section{Prototype Construction}
 %\section{Similarity Judgment}
 %\section{Conclusion}
