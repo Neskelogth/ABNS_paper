@@ -247,7 +247,7 @@ Typicality, Prototypes, CNNs, Siamese Network
 			In the past there have been some works regarding image similarity, like for example the one presented by Appalaraju and Chaoji in 2017~\cite{appalaraju2017image}. In this work they explore the possibility to 
 			find a similarity measure for image retrieval. To achieve this goal, they implemented a siamese neural network that uses two identical multi-scale CNNs that share weights. The ouput of the 
 			network is binary, being $1$ the label to predict in case of negative examples and $0$ the label to predict in case of positive example. The loss function used in this work is a contrastive loss. This paper 
-			then proceeds to explain a technique called Online Pair Mining Strategy (OPMS), inspyred by curriculum learning, that helps reducing the training time. \\
+			then proceeds to explain a technique called Online Pair Mining Strategy (OPMS), inspired by curriculum learning, that helps reducing the training time. \\
 			This is not the only work that uses neural networks to learn similarity, in fact there are also other application fields for similarity study. One of them is healthcare, as shown in a paper by Suo et al., written in 
 			2017, that introduces a model used to make personalized prediction of diseases for patients, basing the prediction on a similarity related method, learned using CNNs~\cite{8217759}. In this paper, before 
 			learning the actual similarity measure, the authors processed the input through a CNN and performed a step they call ``Time fusion''. This step let them incorporate the time information and 
@@ -259,13 +259,20 @@ Typicality, Prototypes, CNNs, Siamese Network
 			judgments~\cite{attarian2020transforming}. Using $VGG16$, the authors were able to achieve good results, with over 90\% in validation accuracy.
 			
 \section{Data Collection}
-\section{Feature Extraction}
-\section{Prototype Construction}
-\section{Similarity Judgment}
 
+	\subsection{Image collection}
+		Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
+		vision~\footnote{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}, that could help. Some of the dataset reported there are famous, like ImageNet or Google's Open Images. The 
+		best for this kind of work, though, is to have a dataset that bases every image on the same ``macrocategory'', like for example a dataset made of images of birds.
+	
+	\subsection{Typicaity values}
+		
 
-\section{Conclusion}
-\section{Possible Further Experiments}
+%\section{Feature Extraction}
+%\section{Prototype Construction}
+%\section{Similarity Judgment}
+%\section{Conclusion}
+%\section{Possible Further Experiments}
 
 
 \nocite{*}
