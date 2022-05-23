@@ -7,6 +7,7 @@
 \usepackage[backend=biber, sorting=none]{biblatex}
 \usepackage{lipsum}
 \usepackage{url}
+\usepackage{subcaption}
 \usepackage[colorlinks=true, urlcolor=blue, pdfborder={0 0 0}]{hyperref}
 \addbibresource{bibliography.bib}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -69,6 +70,20 @@ Typicality, Prototypes, CNNs, Siamese Network
 				Some examples are the Sobel operator and the Canny edge detector. 
 				Each of the methods has pros and cons. 
 				It's the user's job to find the most appropriate for its goal~\cite{owotogbe2019edge}.\\
+				
+				\begin{figure*}[!ht]
+					\centering
+					\begin{subfigure}[!ht]{0.48\linewidth}
+						\centerline{\includegraphics[width=0.9\linewidth]{imgs/obama.jpg}}
+						\label{fig:1a}
+					\end{subfigure}
+					\begin{subfigure}[!ht]{0.48\linewidth}
+						\centerline{\includegraphics[width=0.9\linewidth]{imgs/obama_edges.jpg}}
+						\label{fig:1a}
+					\end{subfigure}
+					\caption{Example of edge detection}
+					\label{fig:1}
+				\end{figure*}
 				
 				After edge detection, other techniques began to spread for feature extraction. 
 				In a paper by Kumar and Kumar Bhatia written in 2014 \cite{kumar2014detailed}, 
@@ -153,6 +168,12 @@ Typicality, Prototypes, CNNs, Siamese Network
 			
 			\end{itemize}
 			
+			\begin{figure}[!ht]
+				\centerline{\includegraphics[width=\linewidth]{imgs/obama_histogram.png}}
+				\caption{Example of color histogram}
+				\label{fig:2}
+			\end{figure}
+			
 			\subsubsection{Deformable shape analysis}
 		
 				A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
@@ -172,6 +193,12 @@ Typicality, Prototypes, CNNs, Siamese Network
 				update all the others as in typical dynamic programming and obtain the optimal location for every vertex.\\
 				The learning of the parameters can be seen as looking for the location with the highest. The matching problem is then fed to a statistical framework that computes the configuration minimizing the 
 				energy cost, which corresponds to the best template match.
+				
+				\begin{figure}[!ht]
+					\centerline{\includegraphics[height=0.3\textheight]{imgs/delaunay.jpg}}
+					\caption{Example of delaunay triangulation, the type of triangulation at the base of Felzenszwalb's paper}
+					\label{fig:3}
+				\end{figure}
 				
 			\subsubsection{Machine learning based feature extraction techniques} \label{mlfe}
 				
@@ -196,17 +223,18 @@ Typicality, Prototypes, CNNs, Siamese Network
 				PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
 				After this step, the only thing left is the classification of the tumour, which was performed with a RELM classifier. 
 				
+				\begin{figure*}[!ht]
+					\centerline{\includegraphics[width=\linewidth]{imgs/cnn_features.png}}
+					\caption{Example of features extracted by a CNN}
+					\label{fig:4}
+				\end{figure*}	
+				
 			\subsubsection{Hyperspectral images feature extraction}
 				
 				Although there exists techniques that can extract features from hyperspectral images, this kind of images are created to capture the entire spectrum. This fact means that these images can capture 
 				more information then what the human eye can. techniques involve, in the majority of the cases, learning of some form, especially in form of neural networks, in particular convolutional recurrent 
-				networks, as seen in a paper by Hu et al.~\cite{hu2020spatial} and in a paper by Rasti et al.~\cite{rasti2020feature}. Probably, it's more meaningful to use normal images than these ones, since, as just 
-
-			\subsubsection{Considerations about feature extraction}
-			
-				Although there are different methods to extract feature, the ones that require neural networks are not easily understandable by humans. The classic feature extraction techniques have a more 
-				human comprehensible result, while the machine learning techniques extract feature in the form of vectors of attributes. Both of these can be used in the following steps, but the procedure requires 
-				little adjustments in the steps based on the chosen procedure.
+				networks, as seen in a paper by Hu et al.~\cite{hu2020spatial} and in a paper by Rasti et al.~\cite{rasti2020feature}. For the reasons just said, it's probably more meaningful to use normal 
+				images than these ones.
 		
 		\subsection{Networks}
 		
@@ -237,6 +265,12 @@ Typicality, Prototypes, CNNs, Siamese Network
 				The applications of deep learning and CNNs are numerous. As shown previously, there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
 				the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{alzubaidi2021review} by Alzubaidi et al.
 		
+				\begin{figure}[!ht]
+					\centerline{\includegraphics[width=\linewidth]{imgs/cnn_architecture.png}}
+					\caption{Example of CNN architecture. In particular, this image represents AlexNet's architecture}
+					\label{fig:5}
+				\end{figure}
+		
 			\subsubsection{Siamese Neural Network}
 
 				Siamese neural networks, also called twin networks, are a more recent advance in computer science. These neural networks have a different structure from convolutional neural networks. The 
@@ -245,6 +279,12 @@ Typicality, Prototypes, CNNs, Siamese Network
 				In the case of this paper, the siamese neural networks are used for image matching. This is not the first time that siamese networks are used for image matching, as proved by a paper written in 2016 by 
 				Melekhov et al.~\cite{melekhov2016siamese}, but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
 				paper, the objective is to find a similarity measure with a prototype. 
+				
+				\begin{figure}[!ht]
+					\centerline{\includegraphics[width=\linewidth]{imgs/siamese_architecture.png}}
+					\caption{Example of a Siamese Network architecture.}
+					\label{fig:6}
+				\end{figure}
 		
 		\subsection{Similarity judgments}
 			
@@ -277,11 +317,30 @@ Typicality, Prototypes, CNNs, Siamese Network
 		could be the best decision since people are quite used to rate in this range. Once there are enough results, the various rates should be averaged so that there is a single measure that takes into 
 		account every rate taken from the survey. The number of people that should participate in the experiment should be high enough to be a meaningful statistical group.
 
+% Word count at beginning of this section: 2948
 \section{Feature Extraction}
 
-	
+	While collecting the needed data with the survey, it's possible to begin the feature extraction procedure. There are various possibilities for this step, as shown in the Section dedicated to feature extraction background. 
+	It could be interesting to test both classical and machine learning methods, to measure which one is the most efficient. Since feature extraction has already been described in the paper, this section will 
+	present a discussion about the results of the presented methods' results. The main difference between the classical and the machine learning feature extraction techniques is human interpretability. 
+	In fact, for classical feature extraction techniques, humans have no difficulty in interpreting the result of the process. For example, in edge extraction, humans have no difficulty in recognizing if the 
+	edge extracted is correct or not seeing the original image. For example, in Figure \ref{fig:1} no one has any problem to recognize that the figure on the right is the one that draws the edges of the figure on the left, 
+	while in Figure \ref{fig:4} there is no clear correlation between the feature and what it means in the image itself.
+	Moreover, classical and machine learning features can give different weights to different features. 
+	In fact, classical methods rely on features that humans consider important, on the basis of general experience about the world, but also based on the way our brain works. An empirical confirmation of this fact 
+	can be that if a person asks to another person to describe, for example, a common kingfisher, the person that should describe the bird will, most likely, start describing the dimension, the shape, and only 
+	later the colour. Machine learning techniques, on the other hand, could give a very high importance to the fact that the bird is mainly blue and red, if they have access to the colour information. Due to the fact that 
+	the blue colour is not very present in nature, the blue and red couple of colours can be highly characteristic of the common kingfisher, even if humans give, unconsciously and innately, more importance to 
+	shape-related features.	
 
-%\section{Prototype Construction}
+\section{Prototype Construction}
+
+	The construction of the prototype is one of the most delicate parts of the experiments. How this phase works depends heavily on what method was used for feature extraction. 
+	
+	\subsection{Classical feature extraction techniques}
+	
+		In case classical feature extraction techniques were used, 
+
 %\section{Similarity Judgment}
 %\section{Possible Further Experiments}
 %\section{Conclusion}

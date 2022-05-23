@@ -7,3 +7,7 @@ automate.cmd
 compile-bib.bat
 compile-paper.bat
 clean.bat
+mnist/
+code_used_for_examples/.idea/
+code_used_for_examples/venv/
+code_used_for_examples/imgs/
