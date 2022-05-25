@@ -30,9 +30,8 @@
 
 	\begin{abstract}
 		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		\lipsum[1]
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		The typicality is a topic that still needs exploration. In this paper, the proposed experiment makes use of feature extraction to build a prototype and a siamese network to find a possible correlation 
+		between the typicality of a concepts and the similarity between a given image and the built prototype. 
 		
 	\end{abstract}
 
@@ -43,7 +42,7 @@
 
 	\section{Introduction}
 		
-		The typicality of a concept is a topic that needs a lot of exploration, since it's difficult to evaluate precisely the typicality of an object 
+		\noindent The typicality of a concept is a topic that needs a lot of exploration, since it's difficult to evaluate precisely the typicality of an object 
 		and also because the people's brains are always a little different from each other. The experiment I would like to propose, has the objective of 
 		making us understand better the bond between the perceived typicality of an object that belongs to a category and the prototype of that category.
 		This can help the scientists to better understand how knowledge is organized in the brain. This experiment consists in different phases, such as
@@ -54,7 +53,7 @@
 
 		\subsection{Feature extraction}
 
-			Feature extraction is a topic widely studied. 
+			\noindent Feature extraction is a topic widely studied. 
 			This topic has numerous different applications. 
 			One of its goals is to reduce the amount of computational power needed for image processing. 
 			There are various techniques to extract meaningful features from images. 
@@ -85,7 +84,7 @@
 						\label{fig:1}
 					\end{figure*}
 					
-					After edge detection, other techniques began to spread for feature extraction. 
+					\noindent After edge detection, other techniques began to spread for feature extraction. 
 					In a paper by Kumar and Kumar Bhatia written in 2014 \cite{kumar2014detailed}, 
 					there are some examples of techniques used to extract features. 
 					In the first one, the authors present different types of features and then some techniques to extract them. 
@@ -229,6 +228,8 @@
 						\label{fig:4}
 					\end{figure*}	
 					
+					\noindent In Figure \ref{fig:4} there is an example of feature extracted by a Convolutional Neural Network. 
+					
 				\subsubsection{Hyperspectral images feature extraction}
 					
 					Although there exists techniques that can extract features from hyperspectral images, this kind of images are created to capture the entire spectrum. This fact means that these images can capture 
@@ -238,7 +239,7 @@
 			
 			\subsection{Networks}
 			
-				Neural Networks are a powerful instrument in the hands of computer scientists. There exists a lot of different types of artificial neural networks, each with its own peculiarities. In particular, for this 
+				\noindent Neural Networks are a powerful instrument in the hands of computer scientists. There exists a lot of different types of artificial neural networks, each with its own peculiarities. In particular, for this 
 				experiment the one needed will be, most likely, just convolutional neural networks and siamese neural networks. 
 			
 				\subsubsection{Convolutional Neural Network (CNN)}
@@ -262,7 +263,7 @@
 							
 					\end{itemize}
 					
-					The applications of deep learning and CNNs are numerous. As shown previously, there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
+					\noindent The applications of deep learning and CNNs are numerous. As shown previously, there are some CNNs used in image classification with the objective to identify diseases. The typical example is 
 					the pneumonia detection. Another possibility is to use CNNs in segmentation or self driving cars, as stated in \cite{alzubaidi2021review} by Alzubaidi et al.
 			
 					\begin{figure}[!ht]
@@ -270,11 +271,14 @@
 						\caption{Example of CNN architecture. In particular, this image represents AlexNet's architecture}
 						\label{fig:5}
 					\end{figure}
-			
+					
+					\noindent In figure \ref{fig:5} there is an example of the architecture of a CNN, in particular AlexNet is the CNN chosen for this example. 
+					
 				\subsubsection{Siamese Neural Network}
 
 					Siamese neural networks, also called twin networks, are a more recent advance in computer science. These neural networks have a different structure from convolutional neural networks. The 
-					structure of siamese neural networks is peculiar. In fact, there are two identical networks that process different inputs and, after that, merge in a single layer that measures the similarity between 
+					structure of siamese neural networks is peculiar. In fact, there are two identical networks, called embedding networks, that process different inputs and, after that, 
+					merge in a single layer that measures the similarity between 
 					the two outputs of the two networks. The siamese neural networks have a different application compared to CNNs, in fact twin networks are mainly used to measure similarity of two objects. 
 					In the case of this paper, the siamese neural networks are used for image matching. This is not the first time that siamese networks are used for image matching, as proved by a paper written in 2016 by 
 					Melekhov et al.~\cite{melekhov2016siamese}, but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
@@ -285,6 +289,10 @@
 						\caption{Example of a Siamese Network architecture.}
 						\label{fig:6}
 					\end{figure}
+					
+					\noindent In Figure \ref{fig:6} there is an example of a Siamese Neural Network, in particular the two embeddings are convolutional neural networks. 
+					
+					% Training with triplets (?)
 			
 			\subsection{Similarity judgments}
 				
@@ -306,21 +314,20 @@
 
 		\subsection{Image collection}
 			
-			Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
+			\noindent Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
 			vision~\footnote{\url{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}}, that could help. Some of the dataset reported there are famous, like ImageNet or Google's Open Images. The 
 			best for this kind of work, though, is to have a dataset that bases every image on the same ``macro-category'', like for example a dataset made of images of birds.
 		
 		\subsection{Typicality values}
 			
-			In this experiment, typicality judgments play a crucial role. To gather enough data about the perceived typicality of images, a form is necessary. This survey should be structured in a way that presents an 
+			\noindent In this experiment, typicality judgments play a crucial role. To gather enough data about the perceived typicality of images, a form is necessary. This survey should be structured in a way that presents an 
 			image ad a time to the subject that is taking the survey and asks to rate the typicality of the object portrayed in the image, possibly in a given range. If that's the case, a range between $1$ and $10$ 
 			could be the best decision since people are quite used to rate in this range. Once there are enough results, the various rates should be averaged so that there is a single measure that takes into 
 			account every rate taken from the survey. The number of people that should participate in the experiment should be high enough to be a meaningful statistical group.
 
-	% Word count at beginning of this section: 2948
 	\section{Feature Extraction\label{sec:fe}}
 
-		While collecting the needed data with the survey, it's possible to begin the feature extraction procedure. There are various possibilities for this step, as shown in the Section dedicated to feature extraction background. 
+		\noindent While collecting the needed data with the survey, it's possible to begin the feature extraction procedure. There are various possibilities for this step, as shown in the Section dedicated to feature extraction background. 
 		It could be interesting to test both classical and machine learning methods, to measure which one is the most efficient. Since feature extraction has already been described in the paper, this section will 
 		present a discussion about the results of the presented methods' results. The main difference between the classical and the machine learning feature extraction techniques is human interpretability. 
 		In fact, for classical feature extraction techniques, humans have no difficulty in interpreting the result of the process. For example, in edge extraction, humans have no difficulty in recognizing if the 
@@ -335,11 +342,11 @@
 
 	\section{Prototype construction}
 
-		The construction of the prototype is one of the most delicate parts of the experiments. How this phase works depends heavily on what method was used for feature extraction. 
+		\noindent The construction of the prototype is one of the most delicate parts of the experiments. How this phase works depends heavily on what method was used for feature extraction. 
 		
 		\subsection{Classical feature extraction techniques}
 		
-			In case classical feature extraction techniques were used, the goal of this activity is to build an image that presents in itself a ``prototype'' of the object. For example, a prototype of a bird, could be 
+			\noindent In case classical feature extraction techniques were used, the goal of this activity is to build an image that presents in itself a ``prototype'' of the object. For example, a prototype of a bird, could be 
 			an imaginary bird with a shape that it's obtained with a weighted average of the shapes of all the birds in the image. For example, since a birds like sparrows and swallows are perceived as more 
 			typical than ostriches and penguins the prototype should resemble more swallows and sparrows than ostriches and penguins. To do so, the key factor is performing numerous analyses on various 
 			different subjects, until there are enough data to have a statistical value. 
@@ -365,15 +372,15 @@
 
 		\subsection{Machine learning feature extraction techniques}
 		
-			In case machine learning feature extraction techniques were used, it's conceptually and practically easier to compute the average features. In fact, the features extracted by machine learning techniques are 
+			\noindent In case machine learning feature extraction techniques were used, it's conceptually and practically easier to compute the average features. In fact, the features extracted by machine learning techniques are 
 			in the form of arrays of numbers, so to compute the prototype of the image in this form it's enough to take the weighted average of the vectors.
 		
 		\subsection{Considerations about prototype construction}
 		
-			The prototype depends on the feature extraction technique that was used. As discussed in Section \ref{sec:fe}, the key difference is human interpretability. In fact, building a prototype using the 
+			\noindent The prototype depends on the feature extraction technique that was used. As discussed in Section \ref{sec:fe}, the key difference is human interpretability. In fact, building a prototype using the 
 			classical feature extraction methods, results in an image that can be seen and interpreted. Using a prototype generated with machine learning feature extraction techniques results in an array 
 			of numerical values, that are not easily interpretable. As of 2022, there has been some research on the topic of interpretability and explainability of machine learning, like for example 
-			(\textbf{SOME CITATIONS}),
+			a work by Carvalho written in 2019, %(\textbf{SOME CITATIONS}),
 			but the field is still growing, also given the interest deriving from the AI-Act, the proposition of the european union in the field of artificial intelligence. In particular, there is a document of 
 			the act~\footnote{\url{https://eur-lex.europa.eu/resource.html?uri=cellar:e0649735-a372-11eb-9585-01aa75ed71a1.0001.02/DOC_1&format=PDF}} that states that there will be some requirements in terms of 
 			transparency and intepretability for machine learning systems that are considered high-risk AI. The growing interest produced some results, but still they're not enough to easily interpret machine learning 
@@ -387,9 +394,44 @@
 			network. Moreover, not only the feature extraction process is convenient, but also the prototype construction itself is more convenient if the features are in the form of numerical parameters, since it's 
 			enough to perform a weighted average, a simpler operation if confronted with the construction of a new image that should take into account features of numerous other images. 
 
-	%\section{Similarity Judgment}
-	%\section{Possible Further Experiments\label{sec:pfe}}
-	%\section{Conclusion}
+	\section{Similarity learning}
+	
+		\noindent The similarity learning is the core part of the experiment. In this experiment, the similarity learning is done through a siamese neural network but, as the previous steps, its architecture depends on the 
+		feature extraction techniques used. 
+		
+		\subsection{Classic feature extraction techniques}
+		
+			\noindent If the feature extraction process happened with classical techniques, after the prototype building step the result is an image. This means that the two embedding networks must be able to process 
+			images. Most likely, the best choice, in this case, is to implement two CNNs as embedding networks and merge them in a single fully connected network for the siamese similarity learning. 
+			In this case, the siamese network would be fed the prototype image and the an image from the dataset. The goal of this kind of prediction is to learn a similarity metric with some annotated values. 
+			After learning the similarity metric, the network will be able to measure the similarity of the prototype image and any other image fed in the other embedding network. By doing so and retrieving various 
+			measurements the couple of values \textit{perceived typicality - similarity measure} could reveal some interesting patterns.
+		
+		\subsection{Classic feature extraction techniques}
+		
+			\noindent If the feature extraction process involved neural networks, after the prototype building step the result is not anymore an image but it's a vector of values. This implies that there is no need to 
+			use a convolutional neural network as embedding, but it's enough to have some fully connected layers that will be merged in a single fully connected network for the similarity learning. The rest of the procedure 
+			is similar, since the siamese network will still be fed the features of the prototype and the features of an imaage of the dataset. 
+		
+		\subsection{Loss function}
+		
+			\noindent The loss function is a key factor of this kind of leaning, togheter with the distance measure. In fact, siamese neural networks usually use a loss function that is called contrastive loss. This kind 
+			of loss is based on a distance measure that should be defined by the person doing the experiment. The type of measure that it's possible to use ranges a lot, from simple distances like the manhattan distance 
+			or the euclidean distance to more complex measures that can be defined by the user. 
+		
+		% Word count without this section: 4526
+		\subsection{Considerations about similarity learning}
+		
+			% 
+			\noindent 
+	
+	\section{Possible Further Experiments\label{sec:pfe}}
+	
+		\subsection{Possible variants in similarity learning}
+		
+		\subsection{Possible relevant follow-ups of similarity learning}
+	
+	\section{Conclusion}
 
 
 	\nocite{*}
