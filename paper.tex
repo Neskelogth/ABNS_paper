@@ -45,11 +45,25 @@
 		\noindent The typicality of a concept is a topic that needs a lot of exploration, since it's difficult to evaluate precisely the typicality of an object 
 		and also because the people's brains are always a little different from each other. The experiment I would like to propose, has the objective of 
 		making us understand better the bond between the perceived typicality of an object that belongs to a category and the prototype of that category.
-		This can help the scientists to better understand how knowledge is organized in the brain. This experiment consists in different phases, such as
-		data collection, feature extraction, prototype construction and similarity judgment.
+		This experiment consists in different phases, such as data collection, feature extraction, prototype construction and similarity judgment.
+		
+	\section{Applications}
+	
+		% Mental diseases, general knowledge about the brain, differences in artificial and biological ways to organize knowledge. 
+		\noindent The possible applications of this experiment are widely ranged. First of all, this experiment could help neuroscientists understand how the knowledge is 
+		organized in the brain. By doing so, there is the possibility to increase the knowledge about the brain and how it works. Moreover, it's possible to confront 
+		the way that a person with cognitive disorders or, more generally, some kind of mental disorder related to knowledge with the results of people without 
+		any disorder, trying to understand if the way that knowledge is handled in the brain is somehow similar or completely different. Lastly, this experiment can 
+		also help to understand if knowledge is encoded in a similar way in artificial and biological neural systems. 
 
 
 	\section{Background}
+	
+		\subsection{Typicality}
+		
+			\lipsum[1]
+			
+			%\cite{dieciuc2019typicality}
 
 		\subsection{Feature extraction}
 
@@ -315,15 +329,27 @@
 		\subsection{Image collection}
 			
 			\noindent Since the proposed experiment uses neural networks, there is the need to have a lot of data. In this particular case, there is the need to gather many images. There are some image dataset, intended for computer 
-			vision~\footnote{\url{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}}, that could help. Some of the dataset reported there are famous, like ImageNet or Google's Open Images. The 
+			vision~\footnote{\url{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}}, that could help. Some of the dataset reported there are quite famous, like ImageNet or Google's Open Images. The 
 			best for this kind of work, though, is to have a dataset that bases every image on the same ``macro-category'', like for example a dataset made of images of birds.
+			% Allungare(?)
 		
 		\subsection{Typicality values}
 			
 			\noindent In this experiment, typicality judgments play a crucial role. To gather enough data about the perceived typicality of images, a form is necessary. This survey should be structured in a way that presents an 
-			image ad a time to the subject that is taking the survey and asks to rate the typicality of the object portrayed in the image, possibly in a given range. If that's the case, a range between $1$ and $10$ 
+			image at a time to the subject that is taking the survey and asks to rate the typicality of the object portrayed in the image, possibly in a given range. If that's the case, a range between $1$ and $10$ 
 			could be the best decision since people are quite used to rate in this range. Once there are enough results, the various rates should be averaged so that there is a single measure that takes into 
 			account every rate taken from the survey. The number of people that should participate in the experiment should be high enough to be a meaningful statistical group.
+			
+			
+		\subsection{Possible alternative to typicality values}
+		
+			% Elencare i primi tot uccelli che vengono in mente
+			\lipsum[1]
+		
+		\subsection{Considerations about the survey}
+		
+			% Possible bias thanks to Alessandro. 
+			\lipsum[1]
 
 	\section{Feature Extraction\label{sec:fe}}
 
@@ -334,11 +360,12 @@
 		edge extracted is correct or not seeing the original image. For example, in Figure \ref{fig:1} no one has any problem to recognize that the figure on the right is the one that draws the edges of the figure on the left, 
 		while in Figure \ref{fig:4} there is no clear correlation between the feature and what it means in the image itself.
 		Moreover, classical and machine learning features can give different weights to different features. 
-		In fact, classical methods rely on features that humans consider important, on the basis of general experience about the world, but also based on the way our brain works. An empirical confirmation of this fact 
+		In fact, classical methods rely mostly on features that humans consider important, on the basis of general experience about the world, but also based on the way our brain works. An empirical confirmation of this fact 
 		can be that if a person asks to another person to describe, for example, a common kingfisher, the person that should describe the bird will, most likely, start describing the dimension, the shape, and only 
 		later the colour. Machine learning techniques, on the other hand, could give a very high importance to the fact that the bird is mainly blue and red, if they have access to the colour information. Due to the fact that 
 		the blue colour is not very present in nature, the blue and red couple of colours can be highly characteristic of the common kingfisher, even if humans give, unconsciously and innately, more importance to 
 		shape-related features.	
+		%Allungare
 
 	\section{Prototype construction}
 
@@ -375,12 +402,12 @@
 			\noindent In case machine learning feature extraction techniques were used, it's conceptually and practically easier to compute the average features. In fact, the features extracted by machine learning techniques are 
 			in the form of arrays of numbers, so to compute the prototype of the image in this form it's enough to take the weighted average of the vectors.
 		
-		\subsection{Considerations about prototype construction}
+		\subsection{Considerations about prototype construction\label{sec:cpc}}
 		
 			\noindent The prototype depends on the feature extraction technique that was used. As discussed in Section \ref{sec:fe}, the key difference is human interpretability. In fact, building a prototype using the 
 			classical feature extraction methods, results in an image that can be seen and interpreted. Using a prototype generated with machine learning feature extraction techniques results in an array 
 			of numerical values, that are not easily interpretable. As of 2022, there has been some research on the topic of interpretability and explainability of machine learning, like for example 
-			a work by Carvalho written in 2019, %(\textbf{SOME CITATIONS}),
+			a work by Carvalho written in 2019~\cite{electronics8080832}, %(\textbf{SOME CITATIONS}),
 			but the field is still growing, also given the interest deriving from the AI-Act, the proposition of the european union in the field of artificial intelligence. In particular, there is a document of 
 			the act~\footnote{\url{https://eur-lex.europa.eu/resource.html?uri=cellar:e0649735-a372-11eb-9585-01aa75ed71a1.0001.02/DOC_1&format=PDF}} that states that there will be some requirements in terms of 
 			transparency and intepretability for machine learning systems that are considered high-risk AI. The growing interest produced some results, but still they're not enough to easily interpret machine learning 
@@ -396,43 +423,88 @@
 
 	\section{Similarity learning}
 	
-		\noindent The similarity learning is the core part of the experiment. In this experiment, the similarity learning is done through a siamese neural network but, as the previous steps, its architecture depends on the 
+		\noindent The similarity learning is the core part of the experiment. In this experiment, the similarity learning is done through a siamese neural network but, as the previous steps, depends on the 
 		feature extraction techniques used. 
 		
 		\subsection{Classic feature extraction techniques}
 		
 			\noindent If the feature extraction process happened with classical techniques, after the prototype building step the result is an image. This means that the two embedding networks must be able to process 
-			images. Most likely, the best choice, in this case, is to implement two CNNs as embedding networks and merge them in a single fully connected network for the siamese similarity learning. 
-			In this case, the siamese network would be fed the prototype image and the an image from the dataset. The goal of this kind of prediction is to learn a similarity metric with some annotated values. 
+			images. Most likely the best choice, in this case, is to implement two CNNs as embedding networks and merge them in a single fully connected network for the siamese similarity learning. 
+			In this case, the siamese network would be fed the prototype image and an image from the dataset. The goal of this kind of prediction is to learn a similarity metric with some annotated values. 
 			After learning the similarity metric, the network will be able to measure the similarity of the prototype image and any other image fed in the other embedding network. By doing so and retrieving various 
 			measurements the couple of values \textit{perceived typicality - similarity measure} could reveal some interesting patterns.
 		
-		\subsection{Classic feature extraction techniques}
+		\subsection{Machine learning feature extraction techniques}
 		
 			\noindent If the feature extraction process involved neural networks, after the prototype building step the result is not anymore an image but it's a vector of values. This implies that there is no need to 
 			use a convolutional neural network as embedding, but it's enough to have some fully connected layers that will be merged in a single fully connected network for the similarity learning. The rest of the procedure 
-			is similar, since the siamese network will still be fed the features of the prototype and the features of an imaage of the dataset. 
+			is similar, since the siamese network will still be fed the features of the prototype and the features of an imaage of the dataset. As in the previous case, the goal of this kind of prediction is to learn 
+			a similarity metric using annotated values. After learning the metric, the network will be able to measure the similarity of the prototype and any other image. 
+			By doing so the couple of values \textit{perceived typicality - similarity measure} could reveal some interesting patterns.
 		
 		\subsection{Loss function}
 		
 			\noindent The loss function is a key factor of this kind of leaning, togheter with the distance measure. In fact, siamese neural networks usually use a loss function that is called contrastive loss. This kind 
-			of loss is based on a distance measure that should be defined by the person doing the experiment. The type of measure that it's possible to use ranges a lot, from simple distances like the manhattan distance 
+			of loss is based on a distance measure that should be defined by who is conductiing the experiment. The type of measure that it's possible to use ranges a lot, from simple distances like the manhattan distance 
 			or the euclidean distance to more complex measures that can be defined by the user. 
 		
-		% Word count without this section: 4526
-		\subsection{Considerations about similarity learning}
+		\subsection{Considerations about similarity learning\label{sec:csl}}
 		
-			% 
-			\noindent 
+			\noindent The two possible embedding networks, convolutional and fully connected, lead to different internal results but the final goal is the same. In fact, even if with different computations, the siamese 
+			network outputs a similarity measure. This output strongly relies on the distance measure. In fact, the same two vectors can have different similarity measures, based on the type of distance that the user 
+			decided to implement. For example, suppose that the vectors are $[2,\ 3]$ and $[5, 8]$. If the manhattan distance is chosen as measure, the distance between the two defined vectors is $8$. 
+			Using the euclidean distance instead of the manhattan distance, the result is $~5,83$. In data science there are some possibilities for distance measurements, a part from euclidean and manhattan distance. Some 
+			examples are the cosine distance or the Hamming distance. Moreover, there could be an ad hoc distance measure, defined for this problem in order to optimize the results obtained by the neural network. 
+			This kind of freedom is very beneficial, since it gives the possibility to use different formulas and, seeing the results, there is also the possibility to see which distance works better. This could give an 
+			insight on which one of the distance measures is the closest to the one used by human brain in similarity judgement. \\
+			Focusing more on the computational aspect of the similarity learning, the more convenient approach is the one involving neural networks feature extraction. In fact, if the features are extracted with 
+			neural networks, the siamese network will only need fully connected layers, while it would need convolutional, pooling and fully connected layers if the features are extracted with in a classical way. 
+			The only problem about the machine learning feature extraction techniques is, as mentioned in \ref{sec:cpc}, is the fact that we're still unable to interpret the features extracted by a CNN.
 	
 	\section{Possible Further Experiments\label{sec:pfe}}
 	
 		\subsection{Possible variants in similarity learning}
 		
-		\subsection{Possible relevant follow-ups of similarity learning}
+			% Use a human-similarity-sensitive loss and see how well it predicts human similarity. Use triplets to train the neural network.
+			The siamese network described in \ref{sec:csl} has no constraints about both the distance measure and the loss function. An interesting possibility could be using a distance measure that is sensitive 
+			to human similarity judgments. In this way, the network will optimize the weights in order to predict based on the human similarity measure. The resulting similarity measure can be, in this case, 
+			compared with the state-of-art human similarity judgments obtained with CNNs.\\
+			Another possibility is to adopt a variant of the previously described network. For example, it's possible to use a variant of siamese neural networks that uses triplets for training. In this version, 
+			the network takes in input a reference (which is the prototype in the case of this experiment) and two values, one positive and one negative. The network tries to maximize the distance between the reference and 
+			the negative example, while minimizing the distance between the reference and the positive example. There is a way, as shown by Dor et al. in \cite{ein-dor-etal-2018-learning}, to adapt the triplet 
+			network to learn a similarity metric. In this way, the similarity metric is learned and so the network itself tries to optimize it. There are different research papers that show how triplet networks 
+			usually outperform siamese networks, especially in one-shot learning. Could be interesting, in this experiment, to confront both siamese neural networks and triplet networks to see which performs better. 
+			Moreover, this could give some hints on how the human similarity judgments work.
+		
+		\subsection{Possible relevant experiments}
 	
+			% study of prototype typicality
+			One of the first ideas that is an interesting follow-up of this experiment is to compare the results obtained with the two possible feature extraction methods. Even though one of the two methods is not 
+			interpretable by humans, it's still interesting trying to understand which of the methods is more efficient in detecting features relevant for the similarity learning. Moreover, if the results 
+			indicate that the machine learning techniques are more efficient, could be a push in the research that try to understand the neural networks' feature extraction method. This could be interesting 
+			for the future of neural networks and neuroscience. \\
+			After the described experiment, there are some natural extensions of the experiment. One of the most natural and obvious extensions of the experiment is to try the same experiment with another category 
+			of images. For example, if the first experiment is conducted on a dataset with bird images, it could be interesting to conduct the same experiment on a dataset that uses a different animal, like, for 
+			example, fishes.\\
+			Another experiment that comes as natural is trying to apply some transfer learning techniques. This could be interesting because, as far as we know, the human brain similarity can work 
+			in different ways in judging similarity of different images. Applying transfer learning, we could see if the feature extracted for a category are also effective for a different category. This can give 
+			extra insight about the typicality and its perception and how it works in human brain. The results can show that human brain innately use the same kind of measure of typicality or a different measure of 
+			typicality for different classes. Of course, either result should be investigated more, since a single test is not enough to prove that one of the two possibilities is more likely than the other. Even though 
+			it's not enough for a proof, could be an interesting starting point for neuroscientists to better understand how typicality works in human brain.\\
+			Another possibly interesting topic could be examining the results of the survey based on the region of the person answering. In fact, it's possible that different regions, that have slightly different 
+			cultures and that may result in slightly different typicality perception. For example, in Europe the eagles are not common, so it's very likely that people will give a high typicality to eagles, while 
+			in North America, since the bald eagle is a national symbol, it's easier that people associate with it a higher typicality value. Moreover, there are a lot of different factors that can influence 
+			the typicality rates of images in people. For example, a farmer could be more inclined than people that live in a big city to think associate a chicken with the concept of ``bird'', and thus giving 
+			it a higher typicality.\\
+			Lastly, it's worth notice that in this paper the prototype is considered as the mean of the features extracted from all the the images of the dataset. A possibility that could be interesting would be 
+			interesting to try to experiment the possibility to use different concept of prototype and implementing the correspondent methods of building it.\\
+			% Mental disorders
+			
 	\section{Conclusion}
 
+		The experiment proposed has the objective to help identifying, if it exists, a link between the typicality of a concept and the similarity to a prototype. The work strongly relies on neural networks, in 
+		particular siamese networks, and using them tries to achieve the goal of linking similarity of a prototype with the typicality. Both if the siamese network can achieve good statistics or if it cannot achieve 
+		good statistics, the result can give an idea of the correlation between typicality and a prototype of a concept. 
 
 	\nocite{*}
 	\printbibliography
