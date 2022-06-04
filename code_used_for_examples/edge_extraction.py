@@ -3,7 +3,7 @@ import os
 
 
 # Read the original image
-img = cv2.imread('imgs/obama.jpg')
+img = cv2.imread('imgs/rondine.jpeg')
 # Display original image
 cv2.imshow('Original', img)
 cv2.waitKey(0)
@@ -20,6 +20,6 @@ cv2.imshow('Canny Edge Detection', edges)
 cv2.waitKey(0)
 
 os.chdir('imgs')
-cv2.imwrite('obama_edges.jpg', edges)
+cv2.imwrite('swallow_2_edges.jpg', edges)
 
 cv2.destroyAllWindows()
