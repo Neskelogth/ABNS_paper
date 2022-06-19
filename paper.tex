@@ -63,7 +63,21 @@
 			the authors, before defining typicality, state that every object in the environment is unique. Then, they state that in categorizing objects, we put them in the same category 
 			despite their difference, minimizing the differences and maximizing the similarities. So typicality is, as defined in this paper, a measure of how representative 
 			an example is of their category and of the other members of the same category. 
-			
+		
+		\subsection{Prototypes}
+
+			\noindent Prototypes are another key concept used in this paper and, as the concept of typicality, should be defined. In this case, there are some differences based on the field that it is 
+			examined. According to Murphy's Big Book of Concepts\cite{Murphy:2002}, a prototype is the best example of a category, which corresponds to the most typical item. In this case 
+			it is specified that this item may not be something that exists physically, but it is an average of what people see from real world examples. Adopting the example that the 
+			author uses in the book, which is about dogs, ``just your abstraction of what dogs are most often like''. This opens the possibility to the fact that every person has, for the 
+			same category, a different prototype. That is why, in this paper, the prototypes will be treated as an average, among different people, of the examples weighted with the 
+			average perceived typicality.\\
+			Although this is the concept of prototype that will be used in this paper, there are numerous different possibilities. For example, could be intended in a software-engineering way 
+			as the first example of a new product, or in a HCI-like way as a representation of conceptual design as stated by Prof. Narges Mahyar of the University of 
+			Massachusetts \cite{hciprot}. Another example is the concept of prototype used by Smith et al. in an article, in which they stated that a prototype is ``a prestored representation 
+			of the usual properties associated with the concept's instances'' \cite{smith1988combining}. This view in some way generalizes the definition expressed by Murphy in his book. \\
+			For the goal of this paper, the best way to define a prototype is the one used by Murphy, although with a small modification to take into account also the typicality of every 
+			example to create the prototype. Also Smith's way to define a prototype would be interesting to use, but since Murphy's way is a bit more specific, it is probably easier to use.
 
 		\subsection{Feature extraction\label{sec:bfe}}
 
@@ -101,8 +115,8 @@
 					\noindent After edge detection, other techniques began to spread for feature extraction. 
 					In a paper by Kumar and Kumar Bhatia written in 2014 \cite{kumar2014detailed}, 
 					there are some examples of techniques used to extract features. 
-					In the first one, the authors present different types of features and then some techniques to extract them. 
-					These are:
+					In this paper, the authors present different types of features and then some techniques to extract them. 
+					Some of the most important are:
 
 					\begin{itemize}
 					
@@ -138,36 +152,23 @@
 						\item \textbf{Gabor filter}:
 						
 							A Gabor is a sinusoid multiplied by a Gaussian, and its response is a convolution operation. 
-							This type of filter performs well in both spatial and frequency domains. 
-						
-						\item \textbf{Chain Code Histogram of Character Contour}:
-						
-							This method is based on a contour following technique. 
-							The contour following uses a chain coding standard proposed by Freeman, that assigns a value to every pixel to identify the next pixel in the border.
-
-						\item \textbf{Finding Intersection/Junction in character}:
-						
-							Using the same standard proposed by Freeman used in Chain Code Histogram, there is the possibility to count intersections (or junctions) and open ends in a figure.					
-							
-						\item \textbf{Transition feature}:
-						
-							This method is based on the transition from background to foreground. 
-							There are different techniques that can work both on gray level images or in 4-connected or 8-connected images.
+							This type of filter performs well in both spatial and frequency domains.
 						
 					\end{itemize}
 				
 				
 				\noindent These were not the only techniques presented in the paper, but since some were more problem-specific (about handwritten character recognition)
 				were excluded from the list. These excluded techniques can still be used, but may have worse results or may require some adaptation. 
-				The techniques were: Fractal theory techniques, Shadow features of character, Sector approach for feature extraction, 
+				The techniques were: Fractal theory techniques, Chain Code Histogram of Character Contour, Finding Intersection/Junction in character, 
+				Shadow features of character, Sector approach for feature extraction, Transition feature
 				Extraction of distance and angle features, Extraction of occupancy and end-point features, and Zernike moments.\\
 				In another paper, written in 2013 by Tian \cite{ping2013review}, there are some other techniques cited that may result useful:
 				
 				\begin{itemize}
 				
-					\item \textbf{colour features}:
+					\item \textbf{Colour features}:
 						
-						colour is one of the most important features humans can perceive. 
+						Colour is one of the most important features humans can perceive. 
 						The features we can extract depend on the colour space, but once it is defined there are some possibilities. 
 						A few examples are colour histograms, colour moments and colour coherence vectors. 
 						One of the simple and meaningful, according to the authors, is colour moments. 
@@ -183,7 +184,7 @@
 				
 				\begin{figure}[!ht]
 					\centerline{\includegraphics[width=\linewidth]{imgs/obama_histogram.png}}
-					\caption{Color histogram of the image used in \ref{fig:1}}
+					\caption{Color histogram of the image used in Figure \ref{fig:1}}
 					\label{fig:2}
 				\end{figure}
 				
@@ -198,12 +199,7 @@
 					possible transformation. The objective is to find the transformation with the lowest possible cost. This component is very flexible, since, depending on the formulation of the energy function, the costs 
 					can be tuned even for individual triangles. Moreover, it is also possible to integrate learning techniques to learn deformation parameters.
 					Since the possible non-rigid transformations of a template are numerous, this kind of techniques usually require an initialization near to the correct solution, 
-					although this is not required for the algorithm presented in this paper. 
-					For the implementation of the algorithm itself, a technique called non-serial dynamic programming was the key factor. In fact, using the order of perfect elimination (property of the every triangulated 
-					simple polygon), the algorithm computes the optimal position of every vertex with respect to the other vertices. Once the algorithm solves for the last vertex, it can 
-					update all the others as in typical dynamic programming and obtain the optimal location for every vertex.\\
-					The learning of the parameters can be seen as looking for the location with the highest. The matching problem is then fed to a statistical framework that computes the configuration minimizing the 
-					energy cost, which corresponds to the best template match.
+					although this is not required for the algorithm presented in this paper. For the implementation of the algorithm itself, a technique called non-serial dynamic programming was the key factor.
 					
 					\begin{figure}[!ht]
 						\centerline{\includegraphics[height=0.4\textheight]{imgs/delaunay.jpg}}
@@ -214,19 +210,9 @@
 				\subsubsection{Machine learning based feature extraction techniques} \label{mlfe}
 					
 					After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
-					In 2019, Halimi et al. wrote a paper about a feature extraction technique that they implemented using unsupervised deep learning~\cite{halimi2019unsupervised}. Although this paper examines the techniques for 
-					3D shapes, it is very likely that it can be adapted to extract 2D features from images.\\
-					The background of this experiments is formed of some concepts that are not immediate. One of the concepts used as background is the minimum distortion correspondence. The other are, for example, 
-					descriptor learning, functional maps and deep functional maps. These concepts serve as a base for all the work done later. \\
-					In particular, the authors focus on unsupervised deep functional maps. The authors state that the main contribution of their paper is that they introduce a technique with which they can 
-					avoid annotating a lot of data before training a model. After reducing the number of vertices to a number between 5000 and 7000, the authors used a deep functional map network. The inputs are 
-					fed to two residual neural networks, which compute a dense descriptor fields. These descriptors, are the inputs to the functional map layer. Lastly, as post processing, a point-wise map recovery was 
-					applied and, after that, the shape was upscaled to the original resolution. 
-					
-					\noindent In 2019, there is another paper, written by Varshni et al. that proposes another method~\cite{varshni2019pneumonia}. This paper has the objective to classify images using CNNs to understand if a patient 
-					has pneumonia or not. After the preprocessing, in which the authors just resized the images, there is the feature extraction process. For this step, the authors used different pretrained models.
-					In this paper's results it is reported that the best model architecture is DenseNet-169. This kind of neural network, called Dense Nets, overcomes the problem of gradient vanishing. The model used in 
-					particular for the work of this paper had 4 dense blocks and 3 transition layers. Then there is a classification layer. 
+					\noindent In 2019, a paper written by Varshni et al. that proposes a method~\cite{varshni2019pneumonia} to classify images using CNNs, trying to understand if a patient 
+					has pneumonia or not. After the preprocessing, there is the feature extraction process. For this step, the authors used different pretrained models.
+					In this paper's results it is reported that the best model architecture is DenseNet-169.
 					
 					\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumours~\cite{gumaei2019hybrid}. The process described in the paper is divided into three points. The 
 					first one is preprocessing, the second is feature extraction and the third is brain tumour classification. The first step is just to rescale the values to the range $[0,1]$. The feature extractor 
