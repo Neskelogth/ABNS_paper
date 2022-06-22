@@ -314,15 +314,20 @@
 			vision\footnote{\url{https://imerit.net/blog/22-free-image-datasets-for-computer-vision-all-pbm/}}, that could help. Some of the dataset reported there are quite famous, like ImageNet or Google's Open Images. The 
 			best for this kind of work, though, is to have a dataset of which every image is part of the same ``macro-category'', like for example a dataset made of images of birds. Even though this is the ideal case,
 			most of the dataset that are used for computer vision contain more than one single category. For example, ImageNet, which is one of the most famous image datasets, contains more than 1 million images that are divided 
-			into 1000 classes. Generally, it is possible to use these datasets, which have different macro categories by filtering the input images based on the macro category the experiment is based on.
+			into 1000 classes. Generally, it is possible to use these datasets, which have different macro categories, by filtering the input images based on the macro category the experiment uses.
 		
-		\subsection{Typicality values\label{sec:typval}}
+		\subsection{Rating based method for typicality values\label{sec:typval}}
 			
 			\noindent In this experiment, typicality judgments play a crucial role. To gather enough data about the perceived typicality of images, a form is necessary. This survey should be structured in a way that presents an 
 			image at a time to the subject that is taking the survey and asks to rate the typicality of the object portrayed in the image, possibly in a given range. If that is the case, a range between $1$ and $10$ 
 			could be the best decision since people are quite used to rate in this range. Once there are enough results, the various rates should be averaged so that there is a single measure that takes into 
 			account every rate taken from the survey. The number of people that should participate in the experiment should be high enough to be a meaningful statistical group.
 			
+		\subsection{Typicality ranking methods for typicality values}
+		
+			\noindent Another possibility for collecting typicality values is the typicality ranking. With this method the researcher asks subjects to rank a set of objects based on their typicality. After doing so 
+			and collecting the data, the researcher should infer the typicality values based on the ranking. The ranking, as the rating described in \ref{sec:typval}, cannot be performed on all images of the dataset, 
+			so it's necessary to split the ranking and rank the images in different forms and then use the informations coming from different subjects and infer the informations about typicality from these answers.
 			
 		\subsection{Possible alternative to typicality values\label{sec:patv}}
 		
@@ -331,10 +336,10 @@
 			to list all the examples of birds that they can think of. These two variants of the same data collection approach are both possible and come with some advantages and disadvantages when compared to the other 
 			method described in \ref{sec:typval}. 
 			
-		\subsection{Test of the second data collection method}
+		\subsection{Test of the alternative data collection method}
 	
-		\noindent To test the method of data collection described in \ref{sec:patv}, I collected the results of a small survey in which there were 10 questions, each asking to give the name of a bird. The number of 
-		people that answered is not big enough to be a statistically relevant group, since the number of the answers is only $14$.
+			\noindent To test the method of data collection described in \ref{sec:patv}, I collected the results of a small survey in which there were 10 questions, each asking to give the name of a bird. The number of 
+			people that answered is not big enough to be a statistically relevant group, since the number of the answers is only $14$.
 	
 		\begin{figure*}
 			\centerline{\includegraphics[width=\linewidth]{imgs/survey_hist.png}}
@@ -381,17 +386,17 @@
 		
 		\end{itemize}
 		
-		\noindent Even with all these problems, the survey works quite well, since also with a few answers the results show that most of the subjects had mentioned the most common birds, like pigeons, while the 
-		less common ones, like for examples peacocks, are mentioned fewer times. The results of this particular survey show that, a part for some examples, most of the birds appear only a few times. Although there 
-		are some examples that are most likely outliers even with large numbers of subjects taking the survey, like ``Dodo'', some other examples, like ``Swift'' or ``Common blackbird'', 
-		are likely to be more typical with a larger number of people taking the survey.\\
-		The goal of the survey is to infer a measure of typicality based on how often a certain example appears in the results of the answers, and the result, at first glance, seems to be achieved. Although only 
-		a test can prove this, it is very likely that with a larger group of subjects taking the survey, the results will differ more than with a small number of subjects.
+			\noindent Even with all these problems, the survey works quite well, since also with a few answers the results show that most of the subjects had mentioned the most common birds, like pigeons, while the 
+			less common ones, like for examples peacocks, are mentioned fewer times. The results of this particular survey show that, a part for some examples, most of the birds appear only a few times. Although there 
+			are some examples that are most likely outliers even with large numbers of subjects taking the survey, like ``Dodo'', some other examples, like ``Swift'' or ``Common blackbird'', 
+			are likely to be more typical with a larger number of people taking the survey.\\
+			The goal of the survey is to infer a measure of typicality based on how often a certain example appears in the results of the answers, and the result, at first glance, seems to be achieved. Although only 
+			a test can prove this, it is very likely that with a larger group of subjects taking the survey, the results will differ more than with a small number of subjects. 
 		
 		\subsection{Considerations about the survey}
 		
 			\noindent The two presented methods proposed for data collection are very different. Both of these have their own peculiarities. The first method can help in having a typicality value for every image collected in the dataset, 
-			while the second does not. Given the large number of images that should be used, though, it is not feasible to ask the subjects to rate the typicality value of all the images of the dataset. In fact, it is very likely 
+			while the alternative does not. Given the large number of images that should be used, though, it is not feasible to ask the subjects to rate the typicality value of all the images of the dataset. In fact, it is very likely 
 			that a subject that has to rate the typicality of a large number of images will be tired after a certain number of images, polluting the results of the survey. A possible solution to this problem is to 
 			divide the survey so that subjects have to rate the typicality of a limited number of images. This method would result in a lower amount of data, but at the same time, a more precise amount of data. Another 
 			problem with this method it is that it has a possible bias. In fact, if a person sees a bird, for example a swan, or a duck, and is asked to rate its typicality, most likely will rate it in the higher part 
@@ -516,7 +521,7 @@
 			how much should the first image weigh compared to the second one, since they portray the same species of bird in different situations. As said before, there is no algorithm that can average the two images in the 
 			way required by this paper, but in this case, most likely, the result would be a mix of two images that would not have much sense, since the swift is in different position, in one it is perched while in the other 
 			image is flying. So, to work with this type of approach, an algorithm that computes the average of the two images should be implemented.\\
-			If the data are obtained witha the second data collection method proposed, the construction can take two different paths. For the first, which is collecting images based on the survey's answers, the 
+			If the data are obtained with the alternative data collection method proposed, the construction can take two different paths. For the first, which is collecting images based on the survey's answers, the 
 			considerations done earlier remain valid, since in the end the feature extraction happens on an image dataset. There is another possibility, though, that is more difficult to implement. In this case, the 
 			prototype is built from scratch, using the informations that the subjects gave in the survey. This method theoretically is more accurate than the others, since it can take into account only features 
 			that the people answering have in mind. On the other hand, people could not list some features that they consider important because they take them for granted. An example is the presence of the beak in birds. 
@@ -591,7 +596,7 @@
 			
 		\subsection{Using the alternative data collection method}
 		
-			\noindent In case the data collection happened with the second method, the similarity learning happens with a siamese neural network which structure depends on the feature extraction method described. The 
+			\noindent In case the data collection happened with the alternative method, the similarity learning happens with a siamese neural network which structure depends on the feature extraction method described. The 
 			results, in fact, can be different. If the data collection is made by looking for images of the cited examples, the feature extraction process can follow two routes: the classical one and the machine learning 
 			one. In both cases, the similarity learning follows the descriptions in \ref{sec:slcfet} and \ref{sec:slmlfet} respectively, since the resulting prototypes are images. In case the feature extraction did not happen through 
 			the collection of images but creating an image following the features listed by the subjects of the survey, the similarity learning still happens with a siamese neural network, but with some differences. In fact 
@@ -626,7 +631,7 @@
 			Focusing more on the computational aspect of the similarity learning, the more convenient approach is the one involving neural networks feature extraction. In fact, if the features are extracted with 
 			neural networks, the siamese network will only need fully connected layers, while it would need convolutional, pooling and fully connected layers if the features are extracted with in a classical way. 
 			The only problem about the machine learning feature extraction techniques, as mentioned in \ref{sec:cpc}, is the fact that we are still unable to interpret the features extracted by a CNN.\\
-			Talking about the second data collection method, if the chosen method is to ask people to list the characteristics they think are most important, the result will probably involve less features. So, as an 
+			Talking about the alternative data collection method, if the chosen method is to ask people to list the characteristics they think are most important, the result will probably involve less features. So, as an 
 			educated guess, it is likely that the similarity learning will perform better in case the survey asks to rate the typicality on a scale. In fact, unless the features are too many and the model suffers of the 
 			so-called curse of dimensionality, the more the features, the better the performance.
 			
@@ -664,7 +669,7 @@
 			the typicality rates of images in people. For example, a farmer could be more inclined than people that live in a big city to associate a chicken with the concept of ``bird'', and thus giving 
 			it a higher typicality.\\
 			It is worth to notice that in this paper the prototype is considered as the mean of the features extracted from all the the images of the dataset. A possibility that could be interesting would be 
-			interesting to try to experiment the possibility to use different concept of prototype and implementing the correspondent methods of building it.\\
+			to try to experiment the possibility to use different concept of prototype and implementing the correspondent methods of building it, possibly even with Smith's concept of prototype.\\
 			Lastly, there is another possibility in the medic field. In fact, if this experiment helps in understanding the way that knowledge is organized in the brain, it could be interesting to see if 
 			asking people with some knowledge-related or cognitive disorder the results of typicality are similar or not to the ones obtained by asking people without disorders. This experiment could give 
 			an insight about how knowledge is organized in brains of people with disorders, and if it is similar to the way brain of people without any disorder organize the knowledge. 
