@@ -407,7 +407,7 @@
 
 			\subsubsection{Limitations and negative aspects}
 			
-				The biggest problematic related to the first two methods presented, which are the rating and the ranking systems, is that it is not feasible to either rate or rank every example in the whole 
+				\noindent The biggest problematic related to the first two methods presented, which are the rating and the ranking systems, is that it is not feasible to either rate or rank every example in the whole 
 				dataset, since it must have many images. In fact, it is very likely that a subject that has to rate or rank many examples will be tired after a certain number of images, polluting the results of the survey.
 				The possible solution to this problem, is to give the subjects a subset of images to rate or rank. In this way, the collected data are most likely more reliable than the ones collected on all the dataset, 
 				so it is more accurate the final result. \\
@@ -423,7 +423,8 @@
 				ducks and swans in the category ``bird'', these examples will not appear on the list. Although this technique presents a lower bias, it results in a great difficulty in prototype construction.
 			
 			\subsubsection{Considerations on how to choose}
-				In order to give the proper weight to both the pros and cons and decide which is the best, the best decision is asking for help to a psychologist or a neuroscientist so that both pros and cons of the two 
+				
+				\noindent In order to give the proper weight to both the pros and cons and decide which is the best, the best decision is asking for help to a psychologist or a neuroscientist so that both pros and cons of the two 
 				methods have the right weight and it is easier to decide which one is more convenient.
 				As alternative, it is possible to try both the methods and see which one gives better results. In this way, both the possibilities will be used and there is the possibility to see which one is better in 
 				terms of performance. 
@@ -433,23 +434,38 @@
 		\noindent While collecting the needed data with the survey, it is possible to begin the feature extraction procedure. There are various possibilities for this step, as shown in Section \ref{sec:bfe}, which is
 		the section dedicated to feature extraction background. 
 		It could be interesting to test both classical and machine learning methods, to measure which one is the most efficient. Since feature extraction has already been described in the paper, this section will 
-		present a discussion about the results of the presented methods' results. The main difference between the classical and the machine learning feature extraction techniques is human interpretability. 
-		In fact, for classical feature extraction techniques, humans have no difficulty in interpreting the result of the process. For example, in edge extraction, humans have no difficulty in recognizing if the 
-		edge extracted is correct or not seeing the original image. For example, in Figure \ref{fig:1} no one has any problem to recognize that the figure on the right is the one that draws the edges of the figure on the left, 
-		while in Figure \ref{fig:4} there is no clear correlation between the feature and what it means in the image itself.
-		Moreover, classical and machine learning features can give different weights to different features. 
-		In fact, classical methods rely mostly on features that humans consider important, on the basis of general experience about the world, but also based on the way our brain works. An empirical confirmation of this fact 
-		can be that if a person asks to another person to describe, for example, a common kingfisher, the person that should describe the bird will, most likely, start describing the dimension, the shape, and only 
-		later the colour. Machine learning techniques, on the other hand, could give a very high importance to the fact that the bird is mainly blue and red, if they have access to the colour information. Due to the fact that 
-		the blue colour is not very present in nature, the blue and red couple of colours can be highly characteristic of the common kingfisher, even if humans give, unconsciously and innately, more importance to 
-		shape-related features.	\\
-		If the data collection method chosen is the one that asks people to list the objects of the category, the feature extraction can happen in two possible ways. The first way is to use the data collected for 
-		typicality judgments and collect also images of the examples that appear in the results. After collecting enough images, the feature extraction process can proceed as described earlier and use either  
-		classical or machine-learning-based feature extraction methods. Although this is a possibility, there could be an alternative. The alternative seems interesting because it can be adapted to rely only on features 
-		that humans identify as important. To do so, the survey should include a question that asks the subjects to list all the characteristics that the objects of the given macro category have in common. In this case, 
-		the features are not strictly extracted by the dataset, but are listed by the subjects that take part in the survey. By doing so, the experiment takes into account, in the prototype, only the features that 
-		human have listed, so only the features that are considered important by humans themselves. Although it is theoretically possible, this procedure will result in numerous complication in prototype construction. 
+		present a discussion about the results of the presented methods' results.
+
+		\subsection{Considerations on feature extraction}
+
+			\noindent The main difference between the classical and the machine learning feature extraction techniques is human interpretability. 
+			In fact, for classical feature extraction techniques, humans have no difficulty in interpreting the result of the process. For example, in edge extraction, humans have no difficulty in recognizing if the 
+			edge extracted is correct or not seeing the original image. In fact, in Figure \ref{fig:1} no one has any problem to recognize that the figure on the right is the one that draws the edges of the figure on the left, 
+			while in Figure \ref{fig:4} there is no clear correlation between the feature and what it means in the image itself.
+			Moreover, classical and machine learning features can give different weights to different features. 
+			In fact, classical methods rely mostly on features that humans consider important, on the basis of general experience about the world, but also based on the way our brain works. An empirical confirmation of this fact 
+			can be that if a person asks to another person to describe, for example, a common kingfisher, the person that should describe the bird will, most likely, start describing the dimension, the shape, and only 
+			later the colour. Machine learning techniques, on the other hand, could give a very high importance to the fact that the bird is mainly blue and red, if they have access to the colour information. Due to the fact that 
+			the blue colour is not very present in nature, the blue and red couple of colours can be highly characteristic of the common kingfisher, even if humans give, unconsciously and innately, more importance to 
+			shape-related features.	\\
+			If the data collection method chosen is the one that asks people to list the objects of the category, the feature extraction can happen in two possible ways. The first way is to use the data collected for 
+			typicality judgments and collect also images of the examples that appear in the results. After collecting enough images, the feature extraction process can proceed as described earlier and use either  
+			classical or machine learning based feature extraction methods. Although this is a possibility, there could be an alternative. The alternative seems interesting because it can be adapted to rely only on features 
+			that humans identify as important. To do so, the survey should include a question that asks the subjects to list all the characteristics that the objects of the given macro category have in common. In this case, 
+			the features are not strictly extracted by the dataset, but are listed by the subjects that take part in the survey. By doing so, the experiment takes into account, in the prototype, only the features that 
+			human have listed, so only the features that are considered important by humans themselves. Although it is theoretically possible, this procedure will result in numerous complication in prototype construction. 
 		
+		\subsection{Limitations of feature extraction}
+		
+			\noindent Examining the proposed methodologies, there are some limitations that can be seen.\\
+			Talking about classical feature extraction techniques, for example, the first question that comes to mind is if these processes lose a lot of informations. For example, the edge detection algorithm loses all 
+			the informations about the colours. Since numerous methods exists and are finalized in extracting various informations from an image, there is the possibility to preprocess through different steps the 
+			images and collect the highest number possible of informations and combine them when constructing the prototype. This can help overcome the problem of losing informations in the feature extraction process but 
+			arises another problem. In fact, it is not clear how the features should be weighted when combined. \\
+			About the machine learning feature extraction, the biggest limitation is human interpretability. In fact, there is still no way to clearly interpret the features extracted by a machine learning system, since 
+			these are in form of arrays of numbers. \\
+			The biggest limitations come with the alternative method. This method can have two possible approaches, and one of them is asking people to list a set of features and using them to build the prototype. This 
+			method is a big limitation since, as will be explained later, it is not clear how these features should be used in prototype construction. 
 
 	\section{Prototype construction}
 
@@ -529,7 +545,7 @@
 					\centerline{\includegraphics[width=0.9\linewidth]{imgs/swallow_edges.jpg}}
 				\end{subfigure}
 				\begin{subfigure}[!t]{0.48\linewidth}
-					\centerline{\includegraphics[height=0.4\textheight]{imgs/swallow_2_edges.jpg}}
+					\centerline{\includegraphics[width=0.4\linewidth]{imgs/swallow_2_edges.jpg}}
 				\end{subfigure}
 				\caption{Edge extraction of different swifts}
 				\label{fig:9}
