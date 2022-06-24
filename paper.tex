@@ -59,7 +59,7 @@
 	
 		\subsection{Typicality}
 		
-			\noindent Typicality is one of the key concepts that will be used in this paper, so it is fundamental that it is defined. In a paper by Dieciuc and Folstein~\cite{dieciuc2019typicality},
+			\noindent Typicality is one of the key concepts that will be used in this paper, so it is fundamental that it is defined. In a paper by Dieciuc and Folstein \cite{dieciuc2019typicality},
 			the authors, before defining typicality, state that every object in the environment is unique. Then, they state that in categorizing objects, we put them in the same category 
 			despite their difference, minimizing the differences and maximizing the similarities. So typicality is, as defined in this paper, a measure of how representative 
 			an example is of their category and of the other members of the same category. 
@@ -67,7 +67,7 @@
 		\subsection{Prototypes}
 
 			\noindent Prototypes are another key concept used in this paper and, as the concept of typicality, should be defined. In this case, there are some differences based on the field that it is 
-			examined. According to Murphy's Big Book of Concepts\cite{Murphy:2002}, a prototype is the best example of a category, which corresponds to the most typical item. In this case 
+			examined. According to Murphy's Big Book of Concepts \cite{Murphy:2002}, a prototype is the best example of a category, which corresponds to the most typical item. In this case 
 			it is specified that this item may not be something that exists physically, but it is an average of what people see from real world examples. Adopting the example that the 
 			author uses in the book, which is about dogs, ``just your abstraction of what dogs are most often like''. This opens the possibility to the fact that every person has, for the 
 			same category, a different prototype. That is why, in this paper, the prototypes will be treated as an average, among different people, of the examples weighted with the 
@@ -91,13 +91,6 @@
 
 				\subsubsection{Classic feature extraction techniques}
 					
-					One of the first feature extraction methods implemented in image processing is edge detection.				
-					In 2019, a paper by Owotogbe presented a review of edge detection techniques. 
-					These are usually divided into two groups, gradient-based and Gaussian-based. 
-					Some examples are the Sobel operator and the Canny edge detector. 
-					Each algorithm has its own peculiarities and it is the user's job to find 
-					the most appropriate for its goal~\cite{owotogbe2019edge}.\\
-					
 					\begin{figure*}[!ht]
 						\centering
 						\begin{subfigure}[!ht]{0.48\linewidth}
@@ -111,6 +104,14 @@
 						\caption{Example of edge detection}
 						\label{fig:1}
 					\end{figure*}
+					
+					One of the first feature extraction methods implemented in image processing is edge detection.				
+					In 2019, a paper by Owotogbe presented a review of edge detection techniques. 
+					These are usually divided into two groups, gradient-based and Gaussian-based. 
+					Some examples are the Sobel operator and the Canny edge detector. 
+					Each algorithm has its own peculiarities and it is the user's job to find 
+					the most appropriate for its goal \cite{owotogbe2019edge}.
+					An example of the result of this process is in Figure \ref{fig:1}.\\					
 					
 					\noindent After edge detection, other techniques began to spread for feature extraction. 
 					In a paper by Kumar and Kumar Bhatia written in 2014 \cite{kumar2014detailed}, 
@@ -191,7 +192,7 @@
 				\subsubsection{Deformable shape analysis}
 			
 					A more sophisticated technique than the ones listed before is shape analysis. Deformable shape analysis, in particular, can be useful to extract features from an image.\\
-					In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes~\cite{felzenszwalb2005representation}. For the goal of the experiment proposed here, some deformable shape 
+					In 2005, Felzenszwalb wrote a paper that focuses on representation and detection of deformable shapes \cite{felzenszwalb2005representation}. For the goal of the experiment proposed here, some deformable shape 
 					detection techniques can be useful. \\
 					The technique proposed strongly relies on the triangulated polygon representation. This type of representation lets approximate every 2D shape without holes using a representation based on triangles. 
 					The author also make use of the properties of chordal graphs and k-trees.\\
@@ -210,11 +211,11 @@
 				\subsubsection{Machine learning based feature extraction techniques} \label{mlfe}
 					
 					After the classic techniques, machine learning began to be involved in feature extraction. In particular there are some papers that explain the results achieved with machine learning.\\
-					\noindent In 2019, a paper written by Varshni et al. that proposes a method~\cite{varshni2019pneumonia} to classify images using CNNs, trying to understand if a patient 
+					\noindent In 2019, a paper written by Varshni et al. that proposes a method \cite{varshni2019pneumonia} to classify images using CNNs, trying to understand if a patient 
 					has pneumonia or not. After the preprocessing, there is the feature extraction process. For this step, the authors used different pretrained models.
 					In this paper's results it is reported that the best model architecture is DenseNet-169.
 					
-					\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumours~\cite{gumaei2019hybrid}. The process described in the paper is divided into three points. The 
+					\noindent In 2019, Guamei et al. wrote a paper about hybrid feature extraction methods to classify brain tumours \cite{gumaei2019hybrid}. The process described in the paper is divided into three points. The 
 					first one is preprocessing, the second is feature extraction and the third is brain tumour classification. The first step is just to rescale the values to the range $[0,1]$. The feature extractor 
 					used is the GIST descriptor. The GIST is then combined with a Gabor filter and produces a total of $mxnx4x4$ GIST feature vectors. There is a variant of the GIST descriptor, the 
 					PCA-NGIST is a PCA-based normalized GIST feature extraction method. The NGIST is a normalized version of the GIST descriptor, that uses the L2 norm to make the GIST invariant to illumination and shadowing. 
@@ -232,7 +233,7 @@
 					
 					Although there exists techniques that can extract features from hyperspectral images, this kind of images are created to capture the entire spectrum. This fact means that these images can capture 
 					more information then what the human eye can. The techniques involve, in the majority of the cases, learning of some form, especially in form of neural networks, in particular convolutional recurrent 
-					networks, as seen in a paper by Hu et al.~\cite{hu2020spatial} and in a paper by Rasti et al.~\cite{rasti2020feature}. For the reasons just said, it is probably more meaningful to use normal 
+					networks, as seen in a paper by Hu et al. \cite{hu2020spatial} and in a paper by Rasti et al. \cite{rasti2020feature}. For the reasons just said, it is probably more meaningful to use normal 
 					images than these ones.
 			
 			\subsection{Networks}
@@ -244,7 +245,7 @@
 				
 					Convolutional neural networks are not an extremely recent type of neural network, especially if we consider that LeNet-5 was created in 1998. Scientists have dealt with CNNs for some years. Now, as of 2022, 
 					CNNs are mostly used to deal with images.\\
-					In 2017, Wu wrote a paper that had the purpose to serve as an introduction to CNNs~\cite{wu2017introduction}. These networks use mostly three kind of layers: Dense layers (which are fully connected layers), 
+					In 2017, Wu wrote a paper that had the purpose to serve as an introduction to CNNs \cite{wu2017introduction}. These networks use mostly three kind of layers: Dense layers (which are fully connected layers), 
 					Convolutional layers and Pooling layers. In the following, there will be a short description of each kind of layer. 
 					\begin{itemize}
 						
@@ -279,7 +280,7 @@
 					they merge in a single layer that measures the similarity between 
 					the two outputs of the two networks. The siamese neural networks have a different application compared to CNNs, in fact twin networks are mainly used to measure similarity of two objects. 
 					In the case of this paper, the siamese neural networks are used for image matching. This is not the first time that siamese networks are used for image matching, as shown in a paper written in 2016 by 
-					Melekhov et al.~\cite{melekhov2016siamese}, but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
+					Melekhov et al. \cite{melekhov2016siamese}, but with a little difference in the objective of the matching. The objective of the paper was to learn a general similarity for image retrieval, while on the case of this 
 					paper, the objective is to find a similarity measure with a prototype. 
 					
 					\begin{figure}[!ht]
@@ -292,19 +293,19 @@
 			
 			\subsection{Similarity judgments}
 				
-				\noindent In the past there have been some works regarding image similarity, like for example the one presented by Appalaraju and Chaoji in 2017~\cite{appalaraju2017image}. In this work they explore the possibility to 
+				\noindent In the past there have been some works regarding image similarity, like for example the one presented by Appalaraju and Chaoji in 2017 \cite{appalaraju2017image}. In this work they explore the possibility to 
 				find a similarity measure for image retrieval. To achieve this goal, they implemented a siamese neural network that uses two identical multi-scale CNNs that share weights. The ouput of the 
 				network is binary, being $1$ the label to predict in case of negative examples and $0$ the label to predict in case of positive example. The loss function used in this work is a contrastive loss. This paper 
 				then proceeds to explain a technique called Online Pair Mining Strategy (OPMS), inspired by curriculum learning, that helps reducing the training time. \\
 				This is not the only work that uses neural networks to learn similarity, in fact there are also other application fields for similarity study. One of them is healthcare, as shown in a paper by Suo et al., written in 
-				2017, that introduces a model used to make personalized prediction of diseases for patients, basing the prediction on a similarity related method, learned using CNNs~\cite{8217759}. In this paper, before 
+				2017, that introduces a model used to make personalized prediction of diseases for patients, basing the prediction on a similarity related method, learned using CNNs \cite{8217759}. In this paper, before 
 				learning the actual similarity measure, the authors processed the input through a CNN and performed a step they call ``Time fusion''. This step let them incorporate the time information and 
 				weight differently eventual symptoms based on their temporal distance from the first appearance of the disease. Only after this step the authors proceeded to learn a similarity metric, basing the learning 
 				on CNNs.\\
 				Another paper, written by Chopra et al. in 2005, used a method similar to the one written by Appalaraju. In this work, the authors used a siamese architecture to learn a similarity metric and applied it 
-				in the field of face verification~\cite{chopra2005learning}.\\
+				in the field of face verification \cite{chopra2005learning}.\\
 				More interestingly, there are also other papers, in particular a paper by Attarian et al. written in 2020 uses $VGG16$. This paper's goal is to use this CNN to predict human similarity 
-				judgments~\cite{attarian2020transforming}. Using $VGG16$, the authors were able to achieve good results, with over 90\% in validation accuracy.
+				judgments \cite{attarian2020transforming}. Using $VGG16$, the authors were able to achieve good results, with over 90\% in validation accuracy.
 				
 	\section{Data Collection}
 
@@ -327,7 +328,7 @@
 		
 			\noindent Another possibility for collecting typicality values is the typicality ranking. With this method the researcher asks subjects to rank a set of objects based on their typicality. After doing so 
 			and collecting the data, the researcher should infer the typicality values based on the ranking. The ranking, as the rating described in \ref{sec:typval}, cannot be performed on all images of the dataset, 
-			so it's necessary to split the ranking and rank the images in different forms and then use the informations coming from different subjects and infer the informations about typicality from these answers.
+			so it is necessary to split the ranking and rank the images in different forms and then use the informations coming from different subjects and infer the informations about typicality from these answers.
 			
 		\subsection{Possible alternative to typicality values\label{sec:patv}}
 		
@@ -393,7 +394,7 @@
 			The goal of the survey is to infer a measure of typicality based on how often a certain example appears in the results of the answers, and the result, at first glance, seems to be achieved. Although only 
 			a test can prove this, it is very likely that with a larger group of subjects taking the survey, the results will differ more than with a small number of subjects. 
 		
-		\subsection{Considerations about the survey\lable{sec:cas}}
+		\subsection{Considerations about the survey\label{sec:cas}}
 		
 			\subsubsection{Considerations}
 				\noindent The first two presented methods have a quite similar concept behind them. Although it is still a matter of discussion which one is more reliable, especially in children, as seen in \cite{maridaki1997rating} 
@@ -402,7 +403,7 @@
 				this kind of bias, but presents a higher difficulty on in extracting the typicality values. \\
 				The alternative possible proposed method, can show a lower bias than the bias of the rating method since no images influence the subject's ratings. Moreover, it is easier to infer a typicality value 
 				than in the ranking method, since a higher position on the list corresponds to a higher typicality. 
-				Another positive aspect of this method is that if a person did not think of a particular example, it won't appear on the ratings. This fact can help identifying the real typicality 
+				Another positive aspect of this method is that if a person did not think of a particular example, it will not appear on the ratings. This fact can help identifying the real typicality 
 				without the possible bias introduced by presenting to a subject an image of an example that did not come to mind. 
 
 			\subsubsection{Limitations and negative aspects}
@@ -421,8 +422,7 @@
 				find a mapping to a scale.\\
 				The alternative possibility described, can result in a lower bias since no images influence the subject's judgments. Recalling the previous example, in fact, if the subject did not think of 
 				ducks and swans in the category ``bird'', these examples will not appear on the list. Although this technique presents a lower bias, it results in a great difficulty in prototype construction.
-			
-			\subsubsection{Considerations on how to choose}
+				\vspace{12pt}
 				
 				\noindent In order to give the proper weight to both the pros and cons and decide which is the best, the best decision is asking for help to a psychologist or a neuroscientist so that both pros and cons of the two 
 				methods have the right weight and it is easier to decide which one is more convenient.
@@ -517,17 +517,20 @@
 			image, the final prototype is obtained by summing all the single images using a weighted sum.
 		 
 		
-		\subsection{Considerations about prototype construction\label{sec:cpc}}
+		\subsection{Considerations and difficulties on prototype construction\label{sec:cpc}}
 		
 			\noindent The prototype depends on the feature extraction technique that was used. As discussed in Section \ref{sec:fe}, the key difference is human interpretability. In fact, building a prototype using the 
 			classical feature extraction methods, results in an image that can be seen and interpreted. Using a prototype generated with machine learning feature extraction techniques results in an array 
 			of numerical values, that are not easily interpretable. As of 2022, there has been some research on the topic of interpretability and explainability of machine learning, like for example 
-			a work by Carvalho written in 2019~\cite{electronics8080832}, 
+			a work by Carvalho written in 2019 \cite{electronics8080832}, 
 			but the field is still growing, also given the interest deriving from the AI-Act, the proposition of the European Union in the field of artificial intelligence. In particular, there is a document of 
 			the act\footnote{\url{https://eur-lex.europa.eu/resource.html?uri=cellar:e0649735-a372-11eb-9585-01aa75ed71a1.0001.02/DOC_1&format=PDF}} that states that there will be some requirements in terms of 
 			transparency and interpretability for machine learning systems that are considered high-risk AI. The growing interest produced some results, but still they are not enough to easily interpret machine learning 
-			features.\\
-			Most likely, in the future will be possible to look at the features extracted by a neural network and comprehend their meaning. When this will be possible, independently of the feature extraction techniques 
+			features. In particular, there are some interesting works regarding computer vision. Mahendran and Vedaldi, for example, explores image inversion techniques to understand to which extent it is possible to 
+			reconstruct the image itself \cite{mahendran2015understanding}. In 2018, Lempitsky, Vedaldi and Ulyanov wrote a paper that shows how a randomly initialized network can be used to invert 
+			deep neural representations \cite{8579082}.\\
+			Most likely, especially considering the papers on image inversion,
+			in the future will be possible to look at the features extracted by a neural network and comprehend their meaning. When this will be possible, independently of the feature extraction techniques 
 			used, the human interpretability will be possible, and with that in mind it would be probably more convenient to extract the features using neural networks. The reason behind this consideration is 
 			that although the training of a neural network can be expensive in computational terms, the evaluation of an input on a trained network it is not very computationally demanding. On the other side, algorithms 
 			like the triangulation always have the same demand, that is lower than the demand of training a neural network, but surely higher than the demand of evaluating a single input on a convolutional neural network. 
@@ -545,9 +548,9 @@
 					\centerline{\includegraphics[width=0.9\linewidth]{imgs/swallow_edges.jpg}}
 				\end{subfigure}
 				\begin{subfigure}[!t]{0.48\linewidth}
-					\centerline{\includegraphics[width=0.4\linewidth]{imgs/swallow_2_edges.jpg}}
+					\centerline{\includegraphics[width=0.9\linewidth]{imgs/swallow_2_edges.jpg}}
 				\end{subfigure}
-				\caption{Edge extraction of different swifts}
+				\caption{Edge extraction of swifts in different poses}
 				\label{fig:9}
 			\end{figure*}
 			
